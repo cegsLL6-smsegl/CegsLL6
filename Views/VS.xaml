@@ -25,7 +25,7 @@
             </Canvas>
 
             <!--Vacuum system-->
-            <wpf:VacuumSystem Canvas.Left="95" Canvas.Bottom="2" />
+            <wpf:VacuumSystem Canvas.Left="95" Canvas.Bottom="2" PressureSensorType="MKS_901P" />
             <wpf:Arrow Orientation="Right" Canvas.Left="184" Canvas.Bottom="18" />
             <wpf:Ambient Canvas.Left="206" Canvas.Bottom="4" />
 

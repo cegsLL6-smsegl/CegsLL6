@@ -129,12 +129,12 @@
             <!--==============================================-->
             <Canvas DockPanel.Dock="Left" Width="760" Height="330" Margin="0,10,0,80" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <local:VS Canvas.Left="223" Canvas.Top="154"/>
-                <wpf:IM6 Canvas.Left="0" Canvas.Top="49" />
-                <wpf:CT Canvas.Left="267" Canvas.Top="74" />
+                <wpf:IM6 Canvas.Left="0" Canvas.Top="49" PressureSensorType="MKS_722_HP" />
+                <wpf:CT Canvas.Left="267" Canvas.Top="74" PressureSensorType="MKS_722_LP"/>
                 <wpf:VTT Canvas.Left="389" Canvas.Top="133" />
-                <wpf:MC Canvas.Left="441" Canvas.Top="98" />
+                <wpf:MC Canvas.Left="441" Canvas.Top="98" PressureSensorType="MKS_DMB" />
                 <local:Split Canvas.Left="493" Canvas.Top="133" />
-                <wpf:GM6 Canvas.Left="532" Canvas.Top="49" />
+                <wpf:GM6 Canvas.Left="532" Canvas.Top="49" PressureSensorType="MKS_722_HP" />
 
                 <wpf:Valve HelpText="IM-CT valve" Component="vIM_CT" Canvas.Left="249" Canvas.Top="128" d:ValveState="Opened" />
                 <wpf:Valve HelpText="CT-VTT valve" Component="vCT_VTT" Canvas.Left="371" Canvas.Top="128" d:ValveState="Opened" />
