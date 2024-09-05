@@ -1,4 +1,5 @@
 {
+  "$type": "AeonHacs.Components.CegsLL6, CegsLL6",
   "Name": "CegsLL6",
   "AlertManager": {
     "Name": "AlertManager",
@@ -54,7 +55,6 @@
           "Temperature": 500,
           "Minutes": 15,
           "AdmitO2": true,
-          "OpenLine": true,
           "WaitForSetpoint": false,
           "Name": "Pre-Burn",
           "Description": ""
@@ -68,7 +68,6 @@
           "Temperature": 850,
           "Minutes": 50,
           "AdmitO2": true,
-          "OpenLine": true,
           "WaitForSetpoint": true,
           "Name": "Combust",
           "Description": ""
@@ -113,7 +112,6 @@
           "Temperature": 150,
           "Minutes": 15,
           "AdmitO2": false,
-          "OpenLine": false,
           "WaitForSetpoint": true,
           "Name": "Combust",
           "Description": ""
@@ -162,7 +160,6 @@
           "Temperature": 150,
           "Minutes": 15,
           "AdmitO2": true,
-          "OpenLine": true,
           "WaitForSetpoint": false,
           "Name": "Pre-Burn",
           "Description": ""
@@ -176,7 +173,6 @@
           "Temperature": 625,
           "Minutes": 45,
           "AdmitO2": true,
-          "OpenLine": true,
           "WaitForSetpoint": true,
           "Name": "Combust",
           "Description": ""
@@ -231,7 +227,6 @@
           "Temperature": 425,
           "Minutes": 30,
           "AdmitO2": false,
-          "OpenLine": false,
           "WaitForSetpoint": true,
           "Name": "Combust",
           "Description": ""
@@ -331,7 +326,6 @@
           "Temperature": 500,
           "Minutes": 15,
           "AdmitO2": true,
-          "OpenLine": true,
           "WaitForSetpoint": false,
           "Name": "Pre-Burn",
           "Description": ""
@@ -382,7 +376,6 @@
           "Temperature": 150,
           "Minutes": 15,
           "AdmitO2": true,
-          "OpenLine": true,
           "WaitForSetpoint": false,
           "Name": "Pre-Burn",
           "Description": ""
@@ -396,7 +389,6 @@
           "Temperature": 625,
           "Minutes": 45,
           "AdmitO2": true,
-          "OpenLine": true,
           "WaitForSetpoint": true,
           "Name": "Combust",
           "Description": ""
@@ -461,7 +453,7 @@
       "IdleTimeout": 50,
       "LogEverything": false,
       "Devices": {
-        "do0": "pVM1_IG.Enable",
+        "do0": "pVM_IG.Enable",
         "do1": "fan2",
         "do2": "fan1",
         "ai0": "pMC",
@@ -469,8 +461,8 @@
         "ai3": "pGM",
         "ai4": "pIM",
         "ai96": "pForeline",
-        "ai97": "pVM1_LP",
-        "ai98": "pVM1_IG",
+        "ai97": "pVM_HP",
+        "ai98": "pVM_IG",
         "ai104": "tMC",
         "ai105": "pGR6",
         "ai106": "pGR4",
@@ -478,7 +470,6 @@
         "ai108": "pGR3",
         "ai109": "pGR2",
         "ai110": "pGR1",
-        "ai111": "pVM1_GP",
         "ai123": "DC5VPower",
         "ai124": "DC5VMainsDetect",
         "ai125": "pAmbient",
@@ -523,7 +514,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 250,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": 1000
       },
       "IdleTimeout": -1,
@@ -577,7 +568,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 250,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": 1000
       },
       "IdleTimeout": -1,
@@ -631,7 +622,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 250,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": 1000
       },
       "IdleTimeout": -1,
@@ -696,7 +687,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 250,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": 1000
       },
       "IdleTimeout": -1,
@@ -712,9 +703,9 @@
         "t6": "tLNManifold"
       }
     },
-    "ActuatorController1": {
+    "ActuatorController": {
       "$type": "AeonHacs.Components.ActuatorController, AeonHacs.Core",
-      "Name": "ActuatorController1",
+      "Name": "ActuatorController",
       "Channels": 48,
       "AeonServo": {
         "Name": "AeonServo",
@@ -750,11 +741,11 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 90,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": -1
       },
       "SerialController": {
-        "Name": "ActuatorController1.SerialController",
+        "Name": "ActuatorController.SerialController",
         "SerialDevice": {
           "RtsMode": "Enabled",
           "PortSettings": {
@@ -787,7 +778,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 200,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": -1
       },
       "IdleTimeout": -1,
@@ -795,7 +786,7 @@
       "Devices": {
         "0": "vGR2_GM",
         "1": "vGR1_GM",
-        "2": "vGM_Split",
+        "2": "vSplit_GM",
         "3": "vGM_VM",
         "4": "vMC_MCP2",
         "5": "vMC_MCP1",
@@ -838,12 +829,12 @@
         "42": "vB"
       }
     },
-    "SwitchBank1": {
+    "SwitchBank": {
       "$type": "AeonHacs.Components.SwitchBank, AeonHacs.Core",
-      "Name": "SwitchBank1",
+      "Name": "SwitchBank",
       "Channels": 16,
       "SerialController": {
-        "Name": "SwitchBank1.SerialController",
+        "Name": "SwitchBank.SerialController",
         "SerialDevice": {
           "RtsMode": "Enabled",
           "PortSettings": {
@@ -876,7 +867,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 200,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": -1
       },
       "IdleTimeout": -1,
@@ -896,9 +887,9 @@
     }
   },
   "ManagedDevices": {
-    "pVM1_IG.Enable": {
+    "pVM_IG.Enable": {
       "$type": "AeonHacs.Components.DigitalOutput, AeonHacs.Core",
-      "Name": "pVM1_IG.Enable",
+      "Name": "pVM_IG.Enable",
       "OnOffState": "Off",
       "StopAction": "TurnOff"
     },
@@ -916,11 +907,11 @@
     }
   },
   "Meters": {
-    "pVM1": {
+    "pVM": {
       "$type": "AeonHacs.Components.DualManometer, AeonHacs.Core",
-      "Name": "pVM1",
-      "HighPressureManometer": "pVM1_HP",
-      "LowPressureManometer": "pVM1_IG",
+      "Name": "pVM",
+      "HighPressureManometer": "pVM_HP",
+      "LowPressureManometer": "pVM_IG",
       "MaximumLowPressure": 0.001,
       "MinimumHighPressure": 0.01,
       "SwitchpointPressure": 0.008,
@@ -931,31 +922,6 @@
       "MaxValue": 0.0,
       "MinValue": 0.0,
       "Sensitivity": 1E-09,
-      "Resolution": 0.01,
-      "ResolutionIsProportional": true,
-      "Filter": null,
-      "Conversion": null,
-      "RateOfChange": null,
-      "Stable": 0.0,
-      "Falling": 0.0,
-      "Rising": 0.0,
-      "ZerosToAverage": 30
-    },
-    "pVM1_HP": {
-      "$type": "AeonHacs.Components.DualManometer, AeonHacs.Core",
-      "Name": "pVM1_HP",
-      "HighPressureManometer": "pVM1_GP",
-      "LowPressureManometer": "pVM1_LP",
-      "MaximumLowPressure": 3.0,
-      "MinimumHighPressure": 4.0,
-      "SwitchpointPressure": 0.0,
-      "MillisecondsToValid": 0,
-      "MinimumMillisecondsOff": 0,
-      "UnitSymbol": "Torr",
-      "Ratiometric": false,
-      "MaxValue": 0.0,
-      "MinValue": 0.0,
-      "Sensitivity": 1E-05,
       "Resolution": 0.01,
       "ResolutionIsProportional": true,
       "Filter": null,
@@ -991,7 +957,7 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "ZeroOffset",
-            "Argument": "x-0.03248454189236558"
+            "Argument": "x-0.0025234177614049465"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
@@ -1036,7 +1002,7 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "ZeroOffset",
-            "Argument": "x+0.010679948279948656"
+            "Argument": "x+0.009825735725874273"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
@@ -1063,42 +1029,69 @@
       "AnalogInputMode": "SingleEnded",
       "MinimumVoltage": 0.0,
       "UnitSymbol": "Torr",
-      "Ratiometric": true,
-      "MaxValue": 1600.0,
+      "Ratiometric": false,
+      "MaxValue": 1000.0,
       "MinValue": 0.0,
-      "Sensitivity": 0.1,
-      "Resolution": 0.1,
-      "ResolutionIsProportional": false,
+      "Sensitivity": 0.0001,
+      "Resolution": 0.01,
+      "ResolutionIsProportional": true,
       "Filter": {
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Power": 2.0,
-        "StepChange": 0.02
+        "StepChange": 0.036
       },
       "Conversion": {
-        "Name": "VoltageCorrection",
+        "Name": "",
         "Operations": [
           {
-            "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
-            "Name": "ZeroOffset",
-            "Argument": "x-0.4551656107217941"
+            "$type": "AeonHacs.Utilities.OperationSet, AeonHacs.Core",
+            "Name": "VoltageCorrection",
+            "Operations": [
+              {
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "ZeroOffset",
+                "Argument": "x-0.9976"
+              },
+              {
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "VRef Correction",
+                "Argument": "x+0.990232613636314"
+              },
+              {
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "Gain",
+                "Argument": "x*1.00986372921794"
+              }
+            ]
           },
           {
-            "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
-            "Name": "Gain",
-            "Argument": "x*385.1716"
+            "$type": "AeonHacs.Utilities.OperationSet, AeonHacs.Core",
+            "Name": "ValueConversion",
+            "Operations": [
+              {
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "SensorReference",
+                "Argument": "x-6"
+              },
+              {
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "SensorExponentialGain",
+                "Argument": "10^x"
+              }
+            ]
           }
         ]
       },
       "RateOfChange": {
         "Name": "",
-        "FilterLength": 35,
+        "FilterLength": 13,
         "MaxIntervalMilliseconds": 1000.0,
         "Resolution": 0.01
       },
-      "Stable": 0.5,
-      "Falling": -0.5,
-      "Rising": 0.5,
+      "Stable": 0.1,
+      "Falling": -0.1,
+      "Rising": 0.1,
       "ZerosToAverage": 30
     },
     "pIM": {
@@ -1108,8 +1101,8 @@
       "AnalogInputMode": "SingleEnded",
       "MinimumVoltage": 0.0,
       "UnitSymbol": "Torr",
-      "Ratiometric": true,
-      "MaxValue": 1600.0,
+      "Ratiometric": false,
+      "MaxValue": 1000.0,
       "MinValue": 0.0,
       "Sensitivity": 0.1,
       "Resolution": 0.1,
@@ -1118,7 +1111,7 @@
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Power": 2.0,
-        "StepChange": 0.02
+        "StepChange": 0.05
       },
       "Conversion": {
         "Name": "VoltageCorrection",
@@ -1126,12 +1119,12 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "ZeroOffset",
-            "Argument": "x-0.49672712557899834"
+            "Argument": "x-0.02823460387342588"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
-            "Name": "Gain",
-            "Argument": "x*384.5671"
+            "Name": "CompensatedGain",
+            "Argument": "x*123.014"
           }
         ]
       },
@@ -1153,8 +1146,8 @@
       "AnalogInputMode": "SingleEnded",
       "MinimumVoltage": 0.0,
       "UnitSymbol": "Torr",
-      "Ratiometric": true,
-      "MaxValue": 1600.0,
+      "Ratiometric": false,
+      "MaxValue": 1000.0,
       "MinValue": 0.0,
       "Sensitivity": 0.1,
       "Resolution": 0.1,
@@ -1163,7 +1156,7 @@
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Power": 2.0,
-        "StepChange": 0.02
+        "StepChange": 0.1
       },
       "Conversion": {
         "Name": "VoltageCorrection",
@@ -1171,12 +1164,12 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "ZeroOffset",
-            "Argument": "x-0.48237299956116486"
+            "Argument": "x-0.047916350787511434"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
-            "Name": "Gain",
-            "Argument": "x*386.028"
+            "Name": "CompensatedGain",
+            "Argument": "x*123.097"
           }
         ]
       },
@@ -1191,60 +1184,15 @@
       "Rising": 0.5,
       "ZerosToAverage": 30
     },
-    "pVM1_GP": {
+    "pVM_HP": {
       "$type": "AeonHacs.Components.AIManometer, AeonHacs.Core",
-      "Name": "pVM1_GP",
-      "MaximumVoltage": 10.0,
-      "AnalogInputMode": "SingleEnded",
-      "MinimumVoltage": 0.0,
-      "UnitSymbol": "Torr",
-      "Ratiometric": true,
-      "MaxValue": 1600.0,
-      "MinValue": 0.0,
-      "Sensitivity": 0.1,
-      "Resolution": 0.1,
-      "ResolutionIsProportional": false,
-      "Filter": {
-        "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
-        "Name": "",
-        "Power": 2.0,
-        "StepChange": 0.02
-      },
-      "Conversion": {
-        "Name": "VoltageCorrection",
-        "Operations": [
-          {
-            "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
-            "Name": "ZeroOffset",
-            "Argument": "x-0.4723456261253139"
-          },
-          {
-            "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
-            "Name": "Gain",
-            "Argument": "x*388.0763"
-          }
-        ]
-      },
-      "RateOfChange": {
-        "Name": "",
-        "FilterLength": 35,
-        "MaxIntervalMilliseconds": 1000.0,
-        "Resolution": 0.01
-      },
-      "Stable": 0.5,
-      "Falling": -0.5,
-      "Rising": 0.5,
-      "ZerosToAverage": 30
-    },
-    "pVM1_LP": {
-      "$type": "AeonHacs.Components.AIManometer, AeonHacs.Core",
-      "Name": "pVM1_LP",
+      "Name": "pVM_HP",
       "MaximumVoltage": 10.0,
       "AnalogInputMode": "SingleEnded",
       "MinimumVoltage": 0.0,
       "UnitSymbol": "Torr",
       "Ratiometric": false,
-      "MaxValue": 1000.0,
+      "MaxValue": 1600.0,
       "MinValue": 0.0,
       "Sensitivity": 1E-05,
       "Resolution": 0.01,
@@ -1263,8 +1211,8 @@
             "Name": "VoltageCorrection",
             "Operations": [
               {
-            "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
-            "Name": "ZeroOffset",
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "ZeroOffset",
                 "Argument": "x-0.9976"
               },
               {
@@ -1303,12 +1251,12 @@
       "Rising": 0.0,
       "ZerosToAverage": 30
     },
-    "pVM1_IG": {
+    "pVM_IG": {
       "$type": "AeonHacs.Components.EdwardsAimX, AeonHacs.Core",
-      "Name": "pVM1_IG",
+      "Name": "pVM_IG",
       "errorSignalVoltage": 2.0,
       "AnalogInputMode": "SingleEnded",
-      "DigitalOutput": "pVM1_IG.Enable",
+      "DigitalOutput": "pVM_IG.Enable",
       "MillisecondsToValid": 5000,
       "MinimumMillisecondsOff": 2000,
       "UnitSymbol": "Torr",
@@ -1335,7 +1283,7 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "VoltageCorrection",
-            "Argument": "x*1.2252"
+            "Argument": "x*1"
           },
           {
             "$type": "AeonHacs.Utilities.OperationSet, AeonHacs.Core",
@@ -1396,12 +1344,12 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x-0.4845697989706693"
+            "Argument": "x-0.48106083737246114"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x*382.6158"
+            "Argument": "x*382.14659211577595"
           }
         ]
       },
@@ -1436,12 +1384,12 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x-0.4842537047336654"
+            "Argument": "x-0.6104195529250543"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x*383.2718"
+            "Argument": "x*395.85831137643737"
           }
         ]
       },
@@ -1476,12 +1424,12 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x-0.47020720449319986"
+            "Argument": "x-0.47028270927147126"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x*381.5154"
+            "Argument": "x*381.09183138615793"
           }
         ]
       },
@@ -1516,12 +1464,12 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x-0.49206673820389485"
+            "Argument": "x-0.4937847022703515"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x*381.8752967267779"
+            "Argument": "x*381.5796004101254"
           }
         ]
       },
@@ -1556,12 +1504,12 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x-0.48074986926425256"
+            "Argument": "x-0.4798811743066993"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x*381.7975441597679"
+            "Argument": "x*381.1618871812149"
           }
         ]
       },
@@ -1596,12 +1544,12 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x-0.4988432854393626"
+            "Argument": "x-0.4969232977096914"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x*379.288211692864"
+            "Argument": "x*379.2012018258977"
           }
         ]
       },
@@ -1641,7 +1589,7 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "",
-            "Argument": "x*382.6991"
+            "Argument": "x*386.2805"
           }
         ]
       },
@@ -1685,12 +1633,7 @@
           }
         ]
       },
-      "RateOfChange": {
-        "Name": "",
-        "FilterLength": 13,
-        "MaxIntervalMilliseconds": 60000.0,
-        "Resolution": 0.01
-      },
+      "RateOfChange": null,
       "Stable": 0.0,
       "Falling": 0.0,
       "Rising": 0.0,
@@ -2511,19 +2454,19 @@
     "vHV": {
       "$type": "AeonHacs.Components.CpwValve, AeonHacs.Core",
       "Name": "vHV",
-      "ValveState": "Opened",
+      "ValveState": "Closed",
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
         {
           "Name": "Close",
-          "Value": 1700,
+          "Value": 1850,
           "Incremental": false,
           "Configuration": "t1.0"
         },
         {
           "Name": "Open",
-          "Value": 700,
+          "Value": 850,
           "Incremental": false,
           "Configuration": "t1.0"
         }
@@ -2538,13 +2481,13 @@
       "ActuatorOperations": [
         {
           "Name": "Close",
-          "Value": 1700,
+          "Value": 1825,
           "Incremental": false,
           "Configuration": "t0.8"
         },
         {
           "Name": "Open",
-          "Value": 1200,
+          "Value": 1225,
           "Incremental": false,
           "Configuration": "t0.8"
         }
@@ -2553,19 +2496,19 @@
     "vB": {
       "$type": "AeonHacs.Components.CpwValve, AeonHacs.Core",
       "Name": "vB",
-      "ValveState": "Opened",
+      "ValveState": "Closed",
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
         {
           "Name": "Close",
-          "Value": 1700,
+          "Value": 1787,
           "Incremental": false,
           "Configuration": "t0.8"
         },
         {
           "Name": "Open",
-          "Value": 1200,
+          "Value": 1240,
           "Incremental": false,
           "Configuration": "t0.8"
         }
@@ -2574,19 +2517,19 @@
     "vR": {
       "$type": "AeonHacs.Components.CpwValve, AeonHacs.Core",
       "Name": "vR",
-      "ValveState": "Opened",
+      "ValveState": "Closed",
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
         {
           "Name": "Close",
-          "Value": 1700,
+          "Value": 1710,
           "Incremental": false,
           "Configuration": "t0.8"
         },
         {
           "Name": "Open",
-          "Value": 1200,
+          "Value": 1175,
           "Incremental": false,
           "Configuration": "t0.8"
         }
@@ -2616,6 +2559,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -2665,6 +2656,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -2708,6 +2747,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -2841,6 +2928,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -2884,6 +3019,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -2933,6 +3116,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -2976,6 +3207,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3025,6 +3304,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -3068,6 +3395,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3117,6 +3492,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -3160,6 +3583,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3209,6 +3680,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -3252,6 +3771,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3301,6 +3868,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -3347,6 +3962,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -3366,9 +4029,9 @@
         }
       ]
     },
-    "vGM_Split": {
+    "vSplit_GM": {
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
-      "Name": "vGM_Split",
+      "Name": "vSplit_GM",
       "Position": 192,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
@@ -3390,6 +4053,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3439,6 +4150,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -3482,6 +4241,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3531,6 +4338,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -3574,6 +4429,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3623,6 +4526,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -3666,6 +4617,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -4410,7 +5409,6 @@
       "StopAction": "TurnOff"
     }
   },
-  "Switches": {},
   "Heaters": {
     "hIP1CCS": {
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
@@ -4419,7 +5417,7 @@
       "PidSetup": "PID_IP1",
       "Setpoint": 150.0,
       "MinimumSetpoint": 0.0,
-      "MaximumSetpoint": 950.0,
+      "MaximumSetpoint": 850.0,
       "StopAction": "None",
       "OnOffState": "Off",
       "UnitSymbol": "°C",
@@ -4447,7 +5445,7 @@
       "PidSetup": "PID_IP2",
       "Setpoint": 150.0,
       "MinimumSetpoint": 0.0,
-      "MaximumSetpoint": 950.0,
+      "MaximumSetpoint": 850.0,
       "StopAction": "None",
       "OnOffState": "Off",
       "UnitSymbol": "°C",
@@ -4475,7 +5473,7 @@
       "PidSetup": "PID_IP3",
       "Setpoint": 150.0,
       "MinimumSetpoint": 0.0,
-      "MaximumSetpoint": 950.0,
+      "MaximumSetpoint": 850.0,
       "StopAction": "None",
       "OnOffState": "Off",
       "UnitSymbol": "°C",
@@ -4503,7 +5501,7 @@
       "PidSetup": "PID_IP4",
       "Setpoint": 150.0,
       "MinimumSetpoint": 0.0,
-      "MaximumSetpoint": 950.0,
+      "MaximumSetpoint": 850.0,
       "StopAction": "None",
       "OnOffState": "Off",
       "UnitSymbol": "°C",
@@ -4531,7 +5529,7 @@
       "PidSetup": "PID_IP5",
       "Setpoint": 150.0,
       "MinimumSetpoint": 0.0,
-      "MaximumSetpoint": 950.0,
+      "MaximumSetpoint": 850.0,
       "StopAction": "None",
       "OnOffState": "Off",
       "UnitSymbol": "°C",
@@ -4559,7 +5557,7 @@
       "PidSetup": "PID_IP6",
       "Setpoint": 150.0,
       "MinimumSetpoint": 0.0,
-      "MaximumSetpoint": 950.0,
+      "MaximumSetpoint": 850.0,
       "StopAction": "None",
       "OnOffState": "Off",
       "UnitSymbol": "°C",
@@ -4830,7 +5828,7 @@
       "ZerosToAverage": 30,
       "ManualMode": false,
       "PowerLevel": 0.0,
-      "MaximumPowerLevel": 8.0
+      "MaximumPowerLevel": 10.0
     },
     "hGR4": {
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
@@ -5103,7 +6101,7 @@
       "MinimumLiters": 10,
       "TargetTemperature": -185,
       "FillTrigger": 5,
-      "SecondsSlowToFill": 180,
+      "SecondsSlowToFill": 240,
       "ColdTemperature": -150,
       "State": "Monitor",
       "IdleTimeout": 500,
@@ -5124,6 +6122,7 @@
       "FreezeTrigger": 5,
       "RaiseTrigger": 2,
       "MaximumSecondsLNFlowing": 60,
+      "MaximumMinutesToFreeze": 4,
       "SecondsToWaitAfterRaised": 8,
       "NearAirTemperature": 60.0,
       "StopAction": "TurnOff",
@@ -5144,6 +6143,7 @@
       "FreezeTrigger": 5,
       "RaiseTrigger": 2,
       "MaximumSecondsLNFlowing": 60,
+      "MaximumMinutesToFreeze": 4,
       "SecondsToWaitAfterRaised": 5,
       "NearAirTemperature": 10.0,
       "StopAction": "TurnOff",
@@ -5164,6 +6164,7 @@
       "FreezeTrigger": 5,
       "RaiseTrigger": 2,
       "MaximumSecondsLNFlowing": 60,
+      "MaximumMinutesToFreeze": 4,
       "SecondsToWaitAfterRaised": 8,
       "NearAirTemperature": 7.0,
       "StopAction": "TurnOff",
@@ -5184,6 +6185,7 @@
       "FreezeTrigger": 5,
       "RaiseTrigger": 2,
       "MaximumSecondsLNFlowing": 60,
+      "MaximumMinutesToFreeze": 4,
       "SecondsToWaitAfterRaised": 8,
       "NearAirTemperature": 10.0,
       "StopAction": "TurnOff",
@@ -5204,6 +6206,7 @@
       "FreezeTrigger": 5,
       "RaiseTrigger": 2,
       "MaximumSecondsLNFlowing": 60,
+      "MaximumMinutesToFreeze": 4,
       "SecondsToWaitAfterRaised": 8,
       "NearAirTemperature": 10.0,
       "StopAction": "TurnOff",
@@ -5224,6 +6227,7 @@
       "FreezeTrigger": 5,
       "RaiseTrigger": 2,
       "MaximumSecondsLNFlowing": 60,
+      "MaximumMinutesToFreeze": 4,
       "SecondsToWaitAfterRaised": 8,
       "NearAirTemperature": 10.0,
       "StopAction": "TurnOff",
@@ -5244,6 +6248,7 @@
       "FreezeTrigger": 5,
       "RaiseTrigger": 2,
       "MaximumSecondsLNFlowing": 60,
+      "MaximumMinutesToFreeze": 4,
       "SecondsToWaitAfterRaised": 8,
       "NearAirTemperature": 10.0,
       "StopAction": "TurnOff",
@@ -5264,6 +6269,7 @@
       "FreezeTrigger": 5,
       "RaiseTrigger": 2,
       "MaximumSecondsLNFlowing": 60,
+      "MaximumMinutesToFreeze": 4,
       "SecondsToWaitAfterRaised": 8,
       "NearAirTemperature": 10.0,
       "StopAction": "TurnOff",
@@ -5284,6 +6290,7 @@
       "FreezeTrigger": 5,
       "RaiseTrigger": 2,
       "MaximumSecondsLNFlowing": 60,
+      "MaximumMinutesToFreeze": 4,
       "SecondsToWaitAfterRaised": 8,
       "NearAirTemperature": 10.0,
       "StopAction": "TurnOff",
@@ -5316,12 +6323,12 @@
     }
   },
   "VacuumSystems": {
-    "VacuumSystem1": {
+    "VacuumSystem": {
       "$type": "AeonHacs.Components.VacuumSystem, AeonHacs.Core",
-      "Name": "VacuumSystem1",
+      "Name": "VacuumSystem",
       "TurboPump": null,
       "RoughingPump": null,
-      "Manometer": "pVM1",
+      "Manometer": "pVM",
       "ForelineManometer": "pForeline",
       "HighVacuumValve": "vHV",
       "LowVacuumValve": "vLV",
@@ -5329,16 +6336,16 @@
       "RoughingValve": "vR",
       "VacuumManifold": "VM",
       "MySection": "VS1All",
-      "State": "Evacuate",
+      "State": "Standby",
       "TargetPressure": 0.0005,
       "BaselinePressure": 0.0001,
-      "GoodBackingPressure": 2.8,
+      "GoodBackingPressure": 4.9,
       "HighVacuumPreferredPressure": 7.0,
       "HighVacuumRequiredPressure": 5.0,
       "LowVacuumRequiredPressure": 8.0,
       "StateStopwatch": {
         "IsRunning": true,
-        "Accumulated": 1789
+        "Accumulated": 11369
       },
       "IdleTimeout": 50
     }
@@ -5368,7 +6375,7 @@
       "$type": "AeonHacs.Components.Chamber, AeonHacs.Core",
       "Name": "VM",
       "MilliLiters": 158.82372000552022,
-      "Manometer": "pVM1",
+      "Manometer": "pVM",
       "Thermometer": null,
       "Heater": null,
       "Coldfinger": null,
@@ -5570,14 +6577,14 @@
         "Needle",
         "Manual"
       ],
-      "PortType": "Combustion",
+      "PortType": "Needle",
       "NotifySampleFurnaceNeeded": false,
       "WarmTemperature": 40,
       "QuartzFurnace": "hIP5CCQ",
       "SampleFurnace": "hIP5CCS",
-      "State": "Empty",
+      "State": "Complete",
       "MilliLiters": 6.1574427299500645,
-      "Sample": null,
+      "Sample": "Sample106",
       "Aliquot": 0,
       "Valve": "vIP5_IM",
       "Manometer": null,
@@ -5594,7 +6601,7 @@
         "Needle",
         "Manual"
       ],
-      "PortType": "Combustion",
+      "PortType": "Needle",
       "NotifySampleFurnaceNeeded": false,
       "WarmTemperature": 40,
       "QuartzFurnace": "hIP6CCQ",
@@ -5637,10 +6644,10 @@
       "Name": "GR1",
       "State": "WaitService",
       "Size": "Standard",
-      "Sample": null,
+      "Sample": "Sample106",
       "Aliquot": 0,
       "GraphitizingTemperature": 580,
-      "SampleTemperatureOffset": 0,
+      "SampleTemperatureOffset": 8,
       "SampleSetpoint": 580.0,
       "StateStopwatch": {
         "IsRunning": false,
@@ -5654,9 +6661,9 @@
         "IsRunning": false,
         "Accumulated": 0
       },
-      "PriorPressure": 71.2,
-      "PressurePeak": 556,
-      "MilliLiters": 2.7728189422697764,
+      "PriorPressure": 233.5,
+      "PressurePeak": 241,
+      "MilliLiters": 3.3427082605958183,
       "Valve": "vGR1_GM",
       "Manometer": "pGR1",
       "Thermometer": "tGR1",
@@ -5669,10 +6676,10 @@
       "Name": "GR2",
       "State": "WaitService",
       "Size": "Standard",
-      "Sample": null,
+      "Sample": "Sample106",
       "Aliquot": 0,
       "GraphitizingTemperature": 580,
-      "SampleTemperatureOffset": 0,
+      "SampleTemperatureOffset": -6,
       "SampleSetpoint": 580.0,
       "StateStopwatch": {
         "IsRunning": false,
@@ -5686,9 +6693,9 @@
         "IsRunning": false,
         "Accumulated": 0
       },
-      "PriorPressure": 48.300000000000004,
-      "PressurePeak": 500,
-      "MilliLiters": 2.619673747931876,
+      "PriorPressure": 0.0,
+      "PressurePeak": 299,
+      "MilliLiters": 3.271243083798862,
       "Valve": "vGR2_GM",
       "Manometer": "pGR2",
       "Thermometer": "tGR2",
@@ -5701,10 +6708,10 @@
       "Name": "GR3",
       "State": "WaitService",
       "Size": "Standard",
-      "Sample": null,
+      "Sample": "Sample106",
       "Aliquot": 0,
       "GraphitizingTemperature": 580,
-      "SampleTemperatureOffset": 0,
+      "SampleTemperatureOffset": 1,
       "SampleSetpoint": 580.0,
       "StateStopwatch": {
         "IsRunning": false,
@@ -5718,9 +6725,9 @@
         "IsRunning": false,
         "Accumulated": 0
       },
-      "PriorPressure": 286.5,
-      "PressurePeak": 1662,
-      "MilliLiters": 2.6249849672434467,
+      "PriorPressure": 79.9,
+      "PressurePeak": 139,
+      "MilliLiters": 3.2698529376817254,
       "Valve": "vGR3_GM",
       "Manometer": "pGR3",
       "Thermometer": "tGR3",
@@ -5731,12 +6738,12 @@
     "GR4": {
       "$type": "AeonHacs.Components.GraphiteReactor, AeonHacs.Core",
       "Name": "GR4",
-      "State": "WaitService",
+      "State": "InProcess",
       "Size": "Standard",
-      "Sample": null,
+      "Sample": "Sample106",
       "Aliquot": 0,
       "GraphitizingTemperature": 580,
-      "SampleTemperatureOffset": 0,
+      "SampleTemperatureOffset": 20,
       "SampleSetpoint": 580.0,
       "StateStopwatch": {
         "IsRunning": false,
@@ -5750,9 +6757,9 @@
         "IsRunning": false,
         "Accumulated": 0
       },
-      "PriorPressure": 0.0,
-      "PressurePeak": 1250,
-      "MilliLiters": 3.3,
+      "PriorPressure": 88.10000000000001,
+      "PressurePeak": 82,
+      "MilliLiters": 3.292094858553361,
       "Valve": "vGR4_GM",
       "Manometer": "pGR4",
       "Thermometer": "tGR4",
@@ -5763,12 +6770,12 @@
     "GR5": {
       "$type": "AeonHacs.Components.GraphiteReactor, AeonHacs.Core",
       "Name": "GR5",
-      "State": "WaitService",
+      "State": "Prepared",
       "Size": "Standard",
       "Sample": null,
       "Aliquot": 0,
       "GraphitizingTemperature": 580,
-      "SampleTemperatureOffset": 0,
+      "SampleTemperatureOffset": 5,
       "SampleSetpoint": 580.0,
       "StateStopwatch": {
         "IsRunning": false,
@@ -5782,9 +6789,9 @@
         "IsRunning": false,
         "Accumulated": 0
       },
-      "PriorPressure": 0.0,
-      "PressurePeak": 1250,
-      "MilliLiters": 3.3,
+      "PriorPressure": 257.2,
+      "PressurePeak": 1541,
+      "MilliLiters": 3.281901077628356,
       "Valve": "vGR5_GM",
       "Manometer": "pGR5",
       "Thermometer": "tGR5",
@@ -5797,10 +6804,10 @@
       "Name": "GR6",
       "State": "WaitService",
       "Size": "Standard",
-      "Sample": null,
+      "Sample": "Sample106",
       "Aliquot": 0,
       "GraphitizingTemperature": 580,
-      "SampleTemperatureOffset": 0,
+      "SampleTemperatureOffset": 12,
       "SampleSetpoint": 580.0,
       "StateStopwatch": {
         "IsRunning": false,
@@ -5814,9 +6821,9 @@
         "IsRunning": false,
         "Accumulated": 0
       },
-      "PriorPressure": 0.0,
-      "PressurePeak": 1250,
-      "MilliLiters": 3.3,
+      "PriorPressure": 124.80000000000001,
+      "PressurePeak": 1333,
+      "MilliLiters": 3.276552834338164,
       "Valve": "vGR6_GM",
       "Manometer": "pGR6",
       "Thermometer": "tGR6",
@@ -5841,7 +6848,7 @@
         "IP5",
         "IP6"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vIM_CT",
         "vIM_VM"
@@ -5861,7 +6868,7 @@
         "CT"
       ],
       "Ports": null,
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vIM_CT",
         "vCT_VTT",
@@ -5882,7 +6889,7 @@
         "VTT"
       ],
       "Ports": null,
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vCT_VTT",
         "vVTT_MC"
@@ -5908,7 +6915,7 @@
         "MCP1",
         "MCP2"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vVTT_MC",
         "vMC_Split"
@@ -5916,7 +6923,7 @@
       "InternalValves": null,
       "PathToVacuum": [
         "vMC_Split",
-        "vGM_Split",
+        "vSplit_GM",
         "vGM_VM"
       ],
       "PathToVacuumIsolation": [
@@ -5937,14 +6944,14 @@
         "Split"
       ],
       "Ports": [],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vMC_Split",
-        "vGM_Split"
+        "vSplit_GM"
       ],
       "InternalValves": null,
       "PathToVacuum": [
-        "vGM_Split",
+        "vSplit_GM",
         "vGM_VM"
       ],
       "PathToVacuumIsolation": [
@@ -5972,9 +6979,9 @@
         "GR5",
         "GR6"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
-        "vGM_Split",
+        "vSplit_GM",
         "vGM_VM"
       ],
       "InternalValves": null,
@@ -5992,7 +6999,7 @@
         "VM"
       ],
       "Ports": null,
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vHe_VM",
         "vH2_VM",
@@ -6025,7 +7032,7 @@
         "IP5",
         "IP6"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vCT_VTT",
         "vCT_VM",
@@ -6060,7 +7067,7 @@
         "MCP1",
         "MCP2"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vMC_Split",
         "vCT_VM",
@@ -6087,7 +7094,7 @@
         "VTT"
       ],
       "Ports": null,
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vIM_CT",
         "vVTT_MC",
@@ -6115,7 +7122,7 @@
         "MCP1",
         "MCP2"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vCT_VTT",
         "vMC_Split"
@@ -6125,7 +7132,7 @@
       ],
       "PathToVacuum": [
         "vMC_Split",
-        "vGM_Split",
+        "vSplit_GM",
         "vGM_VM"
       ],
       "PathToVacuumIsolation": [
@@ -6150,16 +7157,16 @@
         "MCP1",
         "MCP2"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vVTT_MC",
-        "vGM_Split"
+        "vSplit_GM"
       ],
       "InternalValves": [
         "vMC_Split"
       ],
       "PathToVacuum": [
-        "vGM_Split",
+        "vSplit_GM",
         "vGM_VM"
       ],
       "PathToVacuumIsolation": [
@@ -6191,14 +7198,14 @@
         "MCP1",
         "MCP2"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vVTT_MC",
         "vGM_VM"
       ],
       "InternalValves": [
         "vMC_Split",
-        "vGM_Split"
+        "vSplit_GM"
       ],
       "PathToVacuum": [
         "vGM_VM"
@@ -6216,7 +7223,7 @@
         "MCP2"
       ],
       "Ports": null,
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vVTT_MC",
         "vMC_Split"
@@ -6227,7 +7234,7 @@
       ],
       "PathToVacuum": [
         "vMC_Split",
-        "vGM_Split",
+        "vSplit_GM",
         "vGM_VM"
       ],
       "PathToVacuumIsolation": [
@@ -6250,11 +7257,11 @@
         "MCP2",
         "Split"
       ],
-      "Ports": [],
-      "VacuumSystem": "VacuumSystem1",
+      "Ports": null,
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vVTT_MC",
-        "vGM_Split"
+        "vSplit_GM"
       ],
       "InternalValves": [
         "vMC_MCP1",
@@ -6262,7 +7269,7 @@
         "vMC_Split"
       ],
       "PathToVacuum": [
-        "vGM_Split",
+        "vSplit_GM",
         "vGM_VM"
       ],
       "PathToVacuumIsolation": [
@@ -6294,7 +7301,7 @@
         "GR5",
         "GR6"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vVTT_MC",
         "vGM_VM"
@@ -6303,7 +7310,7 @@
         "vMC_MCP1",
         "vMC_MCP2",
         "vMC_Split",
-        "vGM_Split"
+        "vSplit_GM"
       ],
       "PathToVacuum": [
         "vGM_VM"
@@ -6327,7 +7334,7 @@
         "IP5",
         "IP6"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vHe_VM",
         "vH2_VM",
@@ -6362,7 +7369,7 @@
         "GR5",
         "GR6"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vHe_VM",
         "vH2_VM",
@@ -6370,7 +7377,7 @@
         "vO2_VM",
         "vIM_VM",
         "vCT_VM",
-        "vGM_Split",
+        "vSplit_GM",
         "vLV",
         "vHV"
       ],
@@ -6391,18 +7398,18 @@
         "Split"
       ],
       "Ports": null,
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
+        "vHe_VM",
+        "vH2_VM",
+        "vCO2_VM",
+        "vO2_VM",
         "vGR1_GM",
         "vGR2_GM",
         "vGR3_GM",
         "vGR4_GM",
         "vGR5_GM",
         "vGR6_GM",
-        "vHe_VM",
-        "vH2_VM",
-        "vCO2_VM",
-        "vO2_VM",
         "vIM_VM",
         "vCT_VM",
         "vMC_Split",
@@ -6410,7 +7417,7 @@
         "vHV"
       ],
       "InternalValves": [
-        "vGM_Split",
+        "vSplit_GM",
         "vGM_VM"
       ],
       "PathToVacuum": null,
@@ -6446,7 +7453,7 @@
         "GR5",
         "GR6"
       ],
-      "VacuumSystem": "VacuumSystem1",
+      "VacuumSystem": "VacuumSystem",
       "Isolation": [
         "vCO2_VM",
         "vH2_VM",
@@ -6463,7 +7470,7 @@
         "vMC_MCP1",
         "vMC_MCP2",
         "vMC_Split",
-        "vGM_Split",
+        "vSplit_GM",
         "vIM_VM",
         "vCT_VM",
         "vGM_VM"
@@ -6785,7 +7792,7 @@
           "Chamber": "Split",
           "ValveList": [
             "vMC_Split",
-            "vGM_Split"
+            "vSplit_GM"
           ]
         }
       ],
@@ -6802,7 +7809,7 @@
           "Name": "GM",
           "Chamber": "GM",
           "ValveList": [
-            "vGM_Split",
+            "vSplit_GM",
             "vGR1_GM",
             "vGR2_GM",
             "vGR3_GM",
@@ -6985,7 +7992,7 @@
           "Path": null
         },
         {
-          "Name": "pVM1",
+          "Name": "pVM",
           "Resolution": -1.0,
           "Format": "0.00e0",
           "Path": null
@@ -7003,19 +8010,19 @@
       "InsertLatestSkippedEntry": false,
       "Columns": [
         {
-          "Name": "pVM1",
+          "Name": "pVM",
           "Resolution": 1.0,
           "Format": "0.00e0",
           "Path": null
         },
         {
-          "Name": "pVM1_IG",
+          "Name": "pVM_IG",
           "Resolution": -1.0,
           "Format": "0.00e0",
           "Path": null
         },
         {
-          "Name": "pVM1_HP",
+          "Name": "pVM_HP",
           "Resolution": -1.0,
           "Format": "0.00e0",
           "Path": null
@@ -7219,6 +8226,54 @@
       "TimeStampFormat": "MM/dd/yyyy HH:mm:ss.fff\t",
       "ArchiveDaily": true
     },
+    "GRSampleTemperatureLog": {
+      "$type": "AeonHacs.Components.DataLog, AeonHacs.Core",
+      "Name": "GRSampleTemperatureLog",
+      "InsertLatestSkippedEntry": false,
+      "Columns": [
+        {
+          "Name": "GR1.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": null
+        },
+        {
+          "Name": "GR2.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": null
+        },
+        {
+          "Name": "GR3.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": null
+        },
+        {
+          "Name": "GR4.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": null
+        },
+        {
+          "Name": "GR5.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": null
+        },
+        {
+          "Name": "GR6.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": null
+        }
+      ],
+      "ChangeTimeoutMilliseconds": 30000,
+      "OnlyLogWhenChanged": false,
+      "FileName": "GR Sample Temperature data.txt",
+      "TimeStampFormat": "MM/dd/yyyy HH:mm:ss.fff\t",
+      "ArchiveDaily": true
+    },
     "GRTemperatureLog": {
       "$type": "AeonHacs.Components.DataLog, AeonHacs.Core",
       "Name": "GRTemperatureLog",
@@ -7395,16 +8450,1049 @@
       "TimeStampFormat": "MM/dd/yyyy HH:mm:ss.fff\t",
       "ArchiveDaily": false
     },
-    "EventLog": {
+    "TestLog": {
       "$type": "AeonHacs.HacsLog, AeonHacs.Core",
-      "Name": "EventLog",
-      "FileName": "Event log.txt",
+      "Name": "TestLog",
+      "FileName": "Test data.txt",
       "Header": "",
       "TimeStampFormat": "MM/dd/yyyy HH:mm:ss.fff\t",
       "ArchiveDaily": false
     }
   },
-  "Samples": {},
+  "Samples": {
+    "Sample101": {
+      "Name": "Sample101",
+      "LabId": "OXII",
+      "DateTime": "2024-08-21T09:31:10.468493+08:00",
+      "InletPort": "IP1",
+      "CoilTrap": "CT",
+      "d13CPort": "",
+      "Process": "Oxalic Acid",
+      "Parameters": [
+        {
+          "ParameterName": "PressureOverAtm",
+          "Value": 780.0,
+          "Description": "Usually about 10 Torr over standard; should be slightly greater than the atmospheric pressure at any lab that will handle gas samples in septum-sealed vials (including external labs)."
+        },
+        {
+          "ParameterName": "LeakTightTorrLitersPerSecond",
+          "Value": 3E-05,
+          "Description": "The effective gas load below which a volume is considered leak free."
+        },
+        {
+          "ParameterName": "OkPressure",
+          "Value": 0.005,
+          "Description": "Low enough to join sections for drying."
+        },
+        {
+          "ParameterName": "CleanPressure",
+          "Value": 0.0005,
+          "Description": "Low enough to start a new sample."
+        },
+        {
+          "ParameterName": "VPInitialPressure",
+          "Value": -1.0,
+          "Description": "An initial manifold pressure that will result in PressureOverAtm when expanded into an LN-frozen vial"
+        },
+        {
+          "ParameterName": "VPErrorPressure",
+          "Value": -1.0,
+          "Description": "The maximum value for abs(pVP - PressureOverAtm) that is considered nominal."
+        },
+        {
+          "ParameterName": "MaximumResidual",
+          "Value": 1.2,
+          "Description": "The maximum acceptable residual pressure for a completed graphite reaction, expressed as a multiple of the expected value."
+        },
+        {
+          "ParameterName": "IMO2Pressure",
+          "Value": 1350.0,
+          "Description": "An initial IM O2 pressure that will expand sufficient oxygen into the inlet port to fully combust a sample of maximum size. Typically, this means enough to fully oxidize about three mg C to CO2."
+        },
+        {
+          "ParameterName": "FirstTrapBleedPressure",
+          "Value": 2.0,
+          "Description": "The first trap pressure to maintain when collecting CO2 out of a carrier gas by \"bleeding\" the mixture through the FirstTrap."
+        },
+        {
+          "ParameterName": "FirstTrapEndPressure",
+          "Value": 0.03,
+          "Description": "The first trap pressure at which the process should stop the Bleed process."
+        },
+        {
+          "ParameterName": "FirstTrapFlowBypassPressure",
+          "Value": 5.0,
+          "Description": "The maximum pressure differential across the first trap for opening its flow bypass valve. Choose this pressure so that opening the bypass valve will not produce an excessive downstream pressure spike."
+        },
+        {
+          "ParameterName": "IronPreconditionH2Pressure",
+          "Value": 0.0,
+          "Description": "The initial H2 pressure to be used when preparing Fe in the GRs for use as the graphitization catalyst."
+        },
+        {
+          "ParameterName": "IMPluggedTorrPerSecond",
+          "Value": 5.0,
+          "Description": "The IM pressure rate of change, following a stable flow, used to detect that something has been put onto the IP needle (a vial or stopper)."
+        },
+        {
+          "ParameterName": "IMLoadedTorrPerSecond",
+          "Value": 4.0,
+          "Description": "An IM pressure rate of change, following \"plugged\" detection, that indicates the delayed slowing of the pressure increase characteristic of a vial being filled, as distinct from the rapid drop to stability that occurs when the needle is plugged by a stopper."
+        },
+        {
+          "ParameterName": "GRCompleteTorrPerMinute",
+          "Value": 0.4,
+          "Description": "The graphitization reaction is considered complete when the declining pressure rate of change falls below this value."
+        },
+        {
+          "ParameterName": "RoomTemperature",
+          "Value": 21.0,
+          "Description": "Typical room temperature in the lab."
+        },
+        {
+          "ParameterName": "SulfurTrapTemperature",
+          "Value": 400.0,
+          "Description": "Reaction temperature for trapping trace sulfur contamination in a CO2 sample onto iron powder."
+        },
+        {
+          "ParameterName": "IronPreconditioningTemperature",
+          "Value": 580.0,
+          "Description": "Reaction temperature for preparing iron powder with H2 for use as a CO2 reduction catalyst."
+        },
+        {
+          "ParameterName": "IronPreconditioningTemperatureCushion",
+          "Value": 10.0,
+          "Description": "Less than this error is near enough to the Fe Prep reaction temperature to begin the process."
+        },
+        {
+          "ParameterName": "CollectionMinutes",
+          "Value": 4.0,
+          "Description": "Time to wait for CO2 to move from InletPort to the FirstTrap."
+        },
+        {
+          "ParameterName": "ExtractionMinutes",
+          "Value": 4.0,
+          "Description": "Time to spend extracting CO2 from the VTT into the MC."
+        },
+        {
+          "ParameterName": "CO2TransferMinutes",
+          "Value": 4.0,
+          "Description": "Time to wait for CO2 transfer between chambers."
+        },
+        {
+          "ParameterName": "MeasurementSeconds",
+          "Value": 15.0,
+          "Description": "How long to average a measurement."
+        },
+        {
+          "ParameterName": "GRFirstEvacuationMinutes",
+          "Value": 0.0,
+          "Description": "How long to evacuate freshly serviced graphite reactors."
+        },
+        {
+          "ParameterName": "MinimumGRMinutes",
+          "Value": 0.0,
+          "Description": "Minimum Graphitization time."
+        },
+        {
+          "ParameterName": "SplitEquilibrationSeconds",
+          "Value": 0.0,
+          "Description": "After expanding a sample into a larger section, how long to wait before subdividing it."
+        },
+        {
+          "ParameterName": "IronPreconditioningMinutes",
+          "Value": 15.0,
+          "Description": "Duration of iron powder preparation process."
+        },
+        {
+          "ParameterName": "QuartzFurnaceWarmupMinutes",
+          "Value": 10.0,
+          "Description": "How long after turn-on the quartz media takes to reach its functional temperature range."
+        },
+        {
+          "ParameterName": "SulfurTrapMinutes",
+          "Value": 20.0,
+          "Description": "Duration of the sulfur trapping process."
+        },
+        {
+          "ParameterName": "H2_CO2GraphitizationRatio",
+          "Value": 2.3,
+          "Description": "Target H2:CO2 ratio for graphitization, providing excess hydogen to speed reaction."
+        },
+        {
+          "ParameterName": "H2DensityAdjustment",
+          "Value": 0.76,
+          "Description": "Estimated appropriate initial GM H2 pressure reduction to compensate for higher density of H2 in frozen standard GR coldfinger."
+        },
+        {
+          "ParameterName": "SmallSampleMicrogramsCarbon",
+          "Value": 10.0,
+          "Description": "A sample with less than this much carbon is processed as \"small.\""
+        },
+        {
+          "ParameterName": "MinimumUgCThatPermits_d13CSplit",
+          "Value": 1000.0,
+          "Description": "The minimum Aliquot mass (in micrograms) sufficient to provide a d13C split."
+        },
+        {
+          "ParameterName": "DilutedSampleMicrogramsCarbon",
+          "Value": 0.0,
+          "Description": "The minimum final mass for a diluted sample. Dilution is disabled unless DilutedSampleMicrogramsCarbon > SmallSampleMicrogramsCarbon"
+        },
+        {
+          "ParameterName": "MaximumSampleMicrogramsCarbon",
+          "Value": 1150.0,
+          "Description": "Discard CO2 splits as long as the sample contains more than this much carbon."
+        },
+        {
+          "ParameterName": "IpEvacuationPressure",
+          "Value": 0.1,
+          "Description": "Pressure to use when evacuating an IP."
+        },
+        {
+          "ParameterName": "CollectUntilTemperatureRises",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when the Inlet Port temperature rises to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilTemperatureFalls",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when the Inlet Port temperature falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectCloseIpAtPressure",
+          "Value": "NaN",
+          "Description": "During sample collection, close the Inlet Port when the Inlet Manifold pressure falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectCloseIpAtCtPressure",
+          "Value": "NaN",
+          "Description": "During sample collection, close the Inlet Port when the Coil Trap pressure falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilUgc",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when amount of carbon in the Coil Trap reaches this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilMinutes",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when this much time has elapsed, provided that the value is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilCtPressureFalls",
+          "Value": 0.2,
+          "Description": "Stop collecting when the Coil Trap pressure falls to or below this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "IpSetpoint",
+          "Value": 1000.0,
+          "Description": "The Inlet Port sample furnace's target setpoint (the final setpoint when ramping)."
+        },
+        {
+          "ParameterName": "WaitTimerMinutes",
+          "Value": 10.0,
+          "Description": "How many minutes to wait."
+        }
+      ],
+      "SulfurSuspected": false,
+      "Take_d13C": false,
+      "Grams": 0.0057,
+      "MicrogramsDilutionCarbon": 0.0,
+      "TotalMicrogramsCarbon": 0.0,
+      "Discards": 0,
+      "SelectedMicrogramsCarbon": 0.0,
+      "Micrograms_d13C": 0.0,
+      "d13CPartsPerMillion": 0.0,
+      "Aliquots": [
+        {
+          "$type": "AeonHacs.Components.Aliquot, AeonHacs.Core",
+          "Name": "OXII-5.7",
+          "Sample": "Sample101",
+          "GraphiteReactor": "",
+          "MicrogramsCarbon": 0.0,
+          "InitialGmH2Pressure": 0.0,
+          "FinalGmH2Pressure": 0.0,
+          "GRStartPressure": 0.0,
+          "H2CO2PressureRatio": 0.0,
+          "ExpectedResidualPressure": 0.0,
+          "ResidualPressure": 0.0,
+          "ResidualMeasured": false,
+          "Tries": 0
+        }
+      ]
+    },
+    "Sample102": {
+      "Name": "Sample102",
+      "LabId": "OXII",
+      "DateTime": "2024-08-21T10:34:31.0161782+08:00",
+      "InletPort": "IP2",
+      "CoilTrap": "CT",
+      "d13CPort": "",
+      "Process": "Oxalic Acid",
+      "Parameters": [
+        {
+          "ParameterName": "PressureOverAtm",
+          "Value": 780.0,
+          "Description": "Usually about 10 Torr over standard; should be slightly greater than the atmospheric pressure at any lab that will handle gas samples in septum-sealed vials (including external labs)."
+        },
+        {
+          "ParameterName": "LeakTightTorrLitersPerSecond",
+          "Value": 3E-05,
+          "Description": "The effective gas load below which a volume is considered leak free."
+        },
+        {
+          "ParameterName": "OkPressure",
+          "Value": 0.005,
+          "Description": "Low enough to join sections for drying."
+        },
+        {
+          "ParameterName": "CleanPressure",
+          "Value": 0.0005,
+          "Description": "Low enough to start a new sample."
+        },
+        {
+          "ParameterName": "VPInitialPressure",
+          "Value": -1.0,
+          "Description": "An initial manifold pressure that will result in PressureOverAtm when expanded into an LN-frozen vial"
+        },
+        {
+          "ParameterName": "VPErrorPressure",
+          "Value": -1.0,
+          "Description": "The maximum value for abs(pVP - PressureOverAtm) that is considered nominal."
+        },
+        {
+          "ParameterName": "MaximumResidual",
+          "Value": 1.2,
+          "Description": "The maximum acceptable residual pressure for a completed graphite reaction, expressed as a multiple of the expected value."
+        },
+        {
+          "ParameterName": "IMO2Pressure",
+          "Value": 1350.0,
+          "Description": "An initial IM O2 pressure that will expand sufficient oxygen into the inlet port to fully combust a sample of maximum size. Typically, this means enough to fully oxidize about three mg C to CO2."
+        },
+        {
+          "ParameterName": "FirstTrapBleedPressure",
+          "Value": 2.0,
+          "Description": "The first trap pressure to maintain when collecting CO2 out of a carrier gas by \"bleeding\" the mixture through the FirstTrap."
+        },
+        {
+          "ParameterName": "FirstTrapEndPressure",
+          "Value": 0.03,
+          "Description": "The first trap pressure at which the process should stop the Bleed process."
+        },
+        {
+          "ParameterName": "FirstTrapFlowBypassPressure",
+          "Value": 5.0,
+          "Description": "The maximum pressure differential across the first trap for opening its flow bypass valve. Choose this pressure so that opening the bypass valve will not produce an excessive downstream pressure spike."
+        },
+        {
+          "ParameterName": "IronPreconditionH2Pressure",
+          "Value": 0.0,
+          "Description": "The initial H2 pressure to be used when preparing Fe in the GRs for use as the graphitization catalyst."
+        },
+        {
+          "ParameterName": "IMPluggedTorrPerSecond",
+          "Value": 5.0,
+          "Description": "The IM pressure rate of change, following a stable flow, used to detect that something has been put onto the IP needle (a vial or stopper)."
+        },
+        {
+          "ParameterName": "IMLoadedTorrPerSecond",
+          "Value": 4.0,
+          "Description": "An IM pressure rate of change, following \"plugged\" detection, that indicates the delayed slowing of the pressure increase characteristic of a vial being filled, as distinct from the rapid drop to stability that occurs when the needle is plugged by a stopper."
+        },
+        {
+          "ParameterName": "GRCompleteTorrPerMinute",
+          "Value": 0.4,
+          "Description": "The graphitization reaction is considered complete when the declining pressure rate of change falls below this value."
+        },
+        {
+          "ParameterName": "RoomTemperature",
+          "Value": 21.0,
+          "Description": "Typical room temperature in the lab."
+        },
+        {
+          "ParameterName": "SulfurTrapTemperature",
+          "Value": 400.0,
+          "Description": "Reaction temperature for trapping trace sulfur contamination in a CO2 sample onto iron powder."
+        },
+        {
+          "ParameterName": "IronPreconditioningTemperature",
+          "Value": 580.0,
+          "Description": "Reaction temperature for preparing iron powder with H2 for use as a CO2 reduction catalyst."
+        },
+        {
+          "ParameterName": "IronPreconditioningTemperatureCushion",
+          "Value": 10.0,
+          "Description": "Less than this error is near enough to the Fe Prep reaction temperature to begin the process."
+        },
+        {
+          "ParameterName": "CollectionMinutes",
+          "Value": 4.0,
+          "Description": "Time to wait for CO2 to move from InletPort to the FirstTrap."
+        },
+        {
+          "ParameterName": "ExtractionMinutes",
+          "Value": 4.0,
+          "Description": "Time to spend extracting CO2 from the VTT into the MC."
+        },
+        {
+          "ParameterName": "CO2TransferMinutes",
+          "Value": 4.0,
+          "Description": "Time to wait for CO2 transfer between chambers."
+        },
+        {
+          "ParameterName": "MeasurementSeconds",
+          "Value": 15.0,
+          "Description": "How long to average a measurement."
+        },
+        {
+          "ParameterName": "GRFirstEvacuationMinutes",
+          "Value": 0.0,
+          "Description": "How long to evacuate freshly serviced graphite reactors."
+        },
+        {
+          "ParameterName": "MinimumGRMinutes",
+          "Value": 0.0,
+          "Description": "Minimum Graphitization time."
+        },
+        {
+          "ParameterName": "SplitEquilibrationSeconds",
+          "Value": 0.0,
+          "Description": "After expanding a sample into a larger section, how long to wait before subdividing it."
+        },
+        {
+          "ParameterName": "IronPreconditioningMinutes",
+          "Value": 15.0,
+          "Description": "Duration of iron powder preparation process."
+        },
+        {
+          "ParameterName": "QuartzFurnaceWarmupMinutes",
+          "Value": 10.0,
+          "Description": "How long after turn-on the quartz media takes to reach its functional temperature range."
+        },
+        {
+          "ParameterName": "SulfurTrapMinutes",
+          "Value": 20.0,
+          "Description": "Duration of the sulfur trapping process."
+        },
+        {
+          "ParameterName": "H2_CO2GraphitizationRatio",
+          "Value": 2.3,
+          "Description": "Target H2:CO2 ratio for graphitization, providing excess hydogen to speed reaction."
+        },
+        {
+          "ParameterName": "H2DensityAdjustment",
+          "Value": 0.76,
+          "Description": "Estimated appropriate initial GM H2 pressure reduction to compensate for higher density of H2 in frozen standard GR coldfinger."
+        },
+        {
+          "ParameterName": "SmallSampleMicrogramsCarbon",
+          "Value": 10.0,
+          "Description": "A sample with less than this much carbon is processed as \"small.\""
+        },
+        {
+          "ParameterName": "MinimumUgCThatPermits_d13CSplit",
+          "Value": 1000.0,
+          "Description": "The minimum Aliquot mass (in micrograms) sufficient to provide a d13C split."
+        },
+        {
+          "ParameterName": "DilutedSampleMicrogramsCarbon",
+          "Value": 0.0,
+          "Description": "The minimum final mass for a diluted sample. Dilution is disabled unless DilutedSampleMicrogramsCarbon > SmallSampleMicrogramsCarbon"
+        },
+        {
+          "ParameterName": "MaximumSampleMicrogramsCarbon",
+          "Value": 1150.0,
+          "Description": "Discard CO2 splits as long as the sample contains more than this much carbon."
+        },
+        {
+          "ParameterName": "IpEvacuationPressure",
+          "Value": 0.1,
+          "Description": "Pressure to use when evacuating an IP."
+        },
+        {
+          "ParameterName": "CollectUntilTemperatureRises",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when the Inlet Port temperature rises to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilTemperatureFalls",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when the Inlet Port temperature falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectCloseIpAtPressure",
+          "Value": "NaN",
+          "Description": "During sample collection, close the Inlet Port when the Inlet Manifold pressure falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectCloseIpAtCtPressure",
+          "Value": "NaN",
+          "Description": "During sample collection, close the Inlet Port when the Coil Trap pressure falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilUgc",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when amount of carbon in the Coil Trap reaches this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilMinutes",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when this much time has elapsed, provided that the value is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilCtPressureFalls",
+          "Value": 0.2,
+          "Description": "Stop collecting when the Coil Trap pressure falls to or below this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "IpSetpoint",
+          "Value": 1000.0,
+          "Description": "The Inlet Port sample furnace's target setpoint (the final setpoint when ramping)."
+        },
+        {
+          "ParameterName": "WaitTimerMinutes",
+          "Value": 10.0,
+          "Description": "How many minutes to wait."
+        }
+      ],
+      "SulfurSuspected": false,
+      "Take_d13C": false,
+      "Grams": 0.0048,
+      "MicrogramsDilutionCarbon": 0.0,
+      "TotalMicrogramsCarbon": 11.599999999999971,
+      "Discards": 0,
+      "SelectedMicrogramsCarbon": 11.599999999999971,
+      "Micrograms_d13C": 0.0,
+      "d13CPartsPerMillion": 0.0,
+      "Aliquots": []
+    },
+    "Sample103": {
+      "Name": "Sample103",
+      "LabId": "ACG",
+      "DateTime": "2024-08-26T14:02:02.2592381+08:00",
+      "InletPort": "IP4",
+      "CoilTrap": "CT",
+      "d13CPort": "",
+      "Process": "Graphite",
+      "Parameters": [
+        {
+          "ParameterName": "PressureOverAtm",
+          "Value": 780.0,
+          "Description": "Usually about 10 Torr over standard; should be slightly greater than the atmospheric pressure at any lab that will handle gas samples in septum-sealed vials (including external labs)."
+        },
+        {
+          "ParameterName": "LeakTightTorrLitersPerSecond",
+          "Value": 3E-05,
+          "Description": "The effective gas load below which a volume is considered leak free."
+        },
+        {
+          "ParameterName": "OkPressure",
+          "Value": 0.005,
+          "Description": "Low enough to join sections for drying."
+        },
+        {
+          "ParameterName": "CleanPressure",
+          "Value": 0.0005,
+          "Description": "Low enough to start a new sample."
+        },
+        {
+          "ParameterName": "VPInitialPressure",
+          "Value": -1.0,
+          "Description": "An initial manifold pressure that will result in PressureOverAtm when expanded into an LN-frozen vial"
+        },
+        {
+          "ParameterName": "VPErrorPressure",
+          "Value": -1.0,
+          "Description": "The maximum value for abs(pVP - PressureOverAtm) that is considered nominal."
+        },
+        {
+          "ParameterName": "MaximumResidual",
+          "Value": 1.2,
+          "Description": "The maximum acceptable residual pressure for a completed graphite reaction, expressed as a multiple of the expected value."
+        },
+        {
+          "ParameterName": "IMO2Pressure",
+          "Value": 1350.0,
+          "Description": "An initial IM O2 pressure that will expand sufficient oxygen into the inlet port to fully combust a sample of maximum size. Typically, this means enough to fully oxidize about three mg C to CO2."
+        },
+        {
+          "ParameterName": "FirstTrapBleedPressure",
+          "Value": 2.0,
+          "Description": "The first trap pressure to maintain when collecting CO2 out of a carrier gas by \"bleeding\" the mixture through the FirstTrap."
+        },
+        {
+          "ParameterName": "FirstTrapEndPressure",
+          "Value": 0.03,
+          "Description": "The first trap pressure at which the process should stop the Bleed process."
+        },
+        {
+          "ParameterName": "FirstTrapFlowBypassPressure",
+          "Value": 5.0,
+          "Description": "The maximum pressure differential across the first trap for opening its flow bypass valve. Choose this pressure so that opening the bypass valve will not produce an excessive downstream pressure spike."
+        },
+        {
+          "ParameterName": "IronPreconditionH2Pressure",
+          "Value": 0.0,
+          "Description": "The initial H2 pressure to be used when preparing Fe in the GRs for use as the graphitization catalyst."
+        },
+        {
+          "ParameterName": "IMPluggedTorrPerSecond",
+          "Value": 5.0,
+          "Description": "The IM pressure rate of change, following a stable flow, used to detect that something has been put onto the IP needle (a vial or stopper)."
+        },
+        {
+          "ParameterName": "IMLoadedTorrPerSecond",
+          "Value": 4.0,
+          "Description": "An IM pressure rate of change, following \"plugged\" detection, that indicates the delayed slowing of the pressure increase characteristic of a vial being filled, as distinct from the rapid drop to stability that occurs when the needle is plugged by a stopper."
+        },
+        {
+          "ParameterName": "GRCompleteTorrPerMinute",
+          "Value": 0.4,
+          "Description": "The graphitization reaction is considered complete when the declining pressure rate of change falls below this value."
+        },
+        {
+          "ParameterName": "RoomTemperature",
+          "Value": 21.0,
+          "Description": "Typical room temperature in the lab."
+        },
+        {
+          "ParameterName": "SulfurTrapTemperature",
+          "Value": 400.0,
+          "Description": "Reaction temperature for trapping trace sulfur contamination in a CO2 sample onto iron powder."
+        },
+        {
+          "ParameterName": "IronPreconditioningTemperature",
+          "Value": 580.0,
+          "Description": "Reaction temperature for preparing iron powder with H2 for use as a CO2 reduction catalyst."
+        },
+        {
+          "ParameterName": "IronPreconditioningTemperatureCushion",
+          "Value": 10.0,
+          "Description": "Less than this error is near enough to the Fe Prep reaction temperature to begin the process."
+        },
+        {
+          "ParameterName": "CollectionMinutes",
+          "Value": 4.0,
+          "Description": "Time to wait for CO2 to move from InletPort to the FirstTrap."
+        },
+        {
+          "ParameterName": "ExtractionMinutes",
+          "Value": 4.0,
+          "Description": "Time to spend extracting CO2 from the VTT into the MC."
+        },
+        {
+          "ParameterName": "CO2TransferMinutes",
+          "Value": 4.0,
+          "Description": "Time to wait for CO2 transfer between chambers."
+        },
+        {
+          "ParameterName": "MeasurementSeconds",
+          "Value": 15.0,
+          "Description": "How long to average a measurement."
+        },
+        {
+          "ParameterName": "GRFirstEvacuationMinutes",
+          "Value": 0.0,
+          "Description": "How long to evacuate freshly serviced graphite reactors."
+        },
+        {
+          "ParameterName": "MinimumGRMinutes",
+          "Value": 0.0,
+          "Description": "Minimum Graphitization time."
+        },
+        {
+          "ParameterName": "SplitEquilibrationSeconds",
+          "Value": 0.0,
+          "Description": "After expanding a sample into a larger section, how long to wait before subdividing it."
+        },
+        {
+          "ParameterName": "IronPreconditioningMinutes",
+          "Value": 15.0,
+          "Description": "Duration of iron powder preparation process."
+        },
+        {
+          "ParameterName": "QuartzFurnaceWarmupMinutes",
+          "Value": 10.0,
+          "Description": "How long after turn-on the quartz media takes to reach its functional temperature range."
+        },
+        {
+          "ParameterName": "SulfurTrapMinutes",
+          "Value": 20.0,
+          "Description": "Duration of the sulfur trapping process."
+        },
+        {
+          "ParameterName": "H2_CO2GraphitizationRatio",
+          "Value": 2.3,
+          "Description": "Target H2:CO2 ratio for graphitization, providing excess hydogen to speed reaction."
+        },
+        {
+          "ParameterName": "H2DensityAdjustment",
+          "Value": 0.76,
+          "Description": "Estimated appropriate initial GM H2 pressure reduction to compensate for higher density of H2 in frozen standard GR coldfinger."
+        },
+        {
+          "ParameterName": "SmallSampleMicrogramsCarbon",
+          "Value": 10.0,
+          "Description": "A sample with less than this much carbon is processed as \"small.\""
+        },
+        {
+          "ParameterName": "MinimumUgCThatPermits_d13CSplit",
+          "Value": 1000.0,
+          "Description": "The minimum Aliquot mass (in micrograms) sufficient to provide a d13C split."
+        },
+        {
+          "ParameterName": "DilutedSampleMicrogramsCarbon",
+          "Value": 0.0,
+          "Description": "The minimum final mass for a diluted sample. Dilution is disabled unless DilutedSampleMicrogramsCarbon > SmallSampleMicrogramsCarbon"
+        },
+        {
+          "ParameterName": "MaximumSampleMicrogramsCarbon",
+          "Value": 1150.0,
+          "Description": "Discard CO2 splits as long as the sample contains more than this much carbon."
+        },
+        {
+          "ParameterName": "IpEvacuationPressure",
+          "Value": 0.1,
+          "Description": "Pressure to use when evacuating an IP."
+        },
+        {
+          "ParameterName": "CollectUntilTemperatureRises",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when the Inlet Port temperature rises to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilTemperatureFalls",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when the Inlet Port temperature falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectCloseIpAtPressure",
+          "Value": "NaN",
+          "Description": "During sample collection, close the Inlet Port when the Inlet Manifold pressure falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectCloseIpAtCtPressure",
+          "Value": "NaN",
+          "Description": "During sample collection, close the Inlet Port when the Coil Trap pressure falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilUgc",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when amount of carbon in the Coil Trap reaches this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilMinutes",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when this much time has elapsed, provided that the value is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilCtPressureFalls",
+          "Value": 0.2,
+          "Description": "Stop collecting when the Coil Trap pressure falls to or below this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "IpSetpoint",
+          "Value": 1000.0,
+          "Description": "The Inlet Port sample furnace's target setpoint (the final setpoint when ramping)."
+        },
+        {
+          "ParameterName": "WaitTimerMinutes",
+          "Value": 10.0,
+          "Description": "How many minutes to wait."
+        }
+      ],
+      "SulfurSuspected": false,
+      "Take_d13C": false,
+      "Grams": 0.0013,
+      "MicrogramsDilutionCarbon": 0.0,
+      "TotalMicrogramsCarbon": 635.8046710526321,
+      "Discards": 0,
+      "SelectedMicrogramsCarbon": 635.8046710526321,
+      "Micrograms_d13C": 0.0,
+      "d13CPartsPerMillion": 0.0,
+      "Aliquots": [
+        {
+          "$type": "AeonHacs.Components.Aliquot, AeonHacs.Core",
+          "Name": "ACG-1.3",
+          "Sample": "Sample103",
+          "GraphiteReactor": "GR3",
+          "MicrogramsCarbon": 635.8046710526321,
+          "InitialGmH2Pressure": 625.1384105960265,
+          "FinalGmH2Pressure": 531.2546052631587,
+          "GRStartPressure": 534.7,
+          "H2CO2PressureRatio": 2.387560409063822,
+          "ExpectedResidualPressure": 0.38830937489053086,
+          "ResidualPressure": 0.2720998580061421,
+          "ResidualMeasured": true,
+          "Tries": 2
+        }
+      ]
+    },
+    "Sample106": {
+      "Name": "Sample106",
+      "LabId": "23SD-9",
+      "DateTime": "2024-09-02T18:00:36.5924156+08:00",
+      "InletPort": "IP5",
+      "CoilTrap": "CT",
+      "d13CPort": "",
+      "Process": "Carbonate",
+      "Parameters": [
+        {
+          "ParameterName": "PressureOverAtm",
+          "Value": 770.0,
+          "Description": "Usually about 10 Torr over standard; should be slightly greater than the atmospheric pressure at any lab that will handle gas samples in septum-sealed vials (including external labs)."
+        },
+        {
+          "ParameterName": "LeakTightTorrLitersPerSecond",
+          "Value": 3E-05,
+          "Description": "The effective gas load below which a volume is considered leak free."
+        },
+        {
+          "ParameterName": "OkPressure",
+          "Value": 0.005,
+          "Description": "Low enough to join sections for drying."
+        },
+        {
+          "ParameterName": "CleanPressure",
+          "Value": 0.0005,
+          "Description": "Low enough to start a new sample."
+        },
+        {
+          "ParameterName": "VPInitialPressure",
+          "Value": -1.0,
+          "Description": "An initial manifold pressure that will result in PressureOverAtm when expanded into an LN-frozen vial"
+        },
+        {
+          "ParameterName": "VPErrorPressure",
+          "Value": -1.0,
+          "Description": "The maximum value for abs(pVP - PressureOverAtm) that is considered nominal."
+        },
+        {
+          "ParameterName": "MaximumResidual",
+          "Value": 1.2,
+          "Description": "The maximum acceptable residual pressure for a completed graphite reaction, expressed as a multiple of the expected value."
+        },
+        {
+          "ParameterName": "IMO2Pressure",
+          "Value": 1350.0,
+          "Description": "An initial IM O2 pressure that will expand sufficient oxygen into the inlet port to fully combust a sample of maximum size. Typically, this means enough to fully oxidize about three mg C to CO2."
+        },
+        {
+          "ParameterName": "FirstTrapBleedPressure",
+          "Value": 2.0,
+          "Description": "The first trap pressure to maintain when collecting CO2 out of a carrier gas by \"bleeding\" the mixture through the FirstTrap."
+        },
+        {
+          "ParameterName": "FirstTrapEndPressure",
+          "Value": 0.03,
+          "Description": "The first trap pressure at which the process should stop the Bleed process."
+        },
+        {
+          "ParameterName": "FirstTrapFlowBypassPressure",
+          "Value": 5.0,
+          "Description": "The maximum pressure differential across the first trap for opening its flow bypass valve. Choose this pressure so that opening the bypass valve will not produce an excessive downstream pressure spike."
+        },
+        {
+          "ParameterName": "IronPreconditionH2Pressure",
+          "Value": 0.0,
+          "Description": "The initial H2 pressure to be used when preparing Fe in the GRs for use as the graphitization catalyst."
+        },
+        {
+          "ParameterName": "IMPluggedTorrPerSecond",
+          "Value": 5.0,
+          "Description": "The IM pressure rate of change, following a stable flow, used to detect that something has been put onto the IP needle (a vial or stopper)."
+        },
+        {
+          "ParameterName": "IMLoadedTorrPerSecond",
+          "Value": 4.0,
+          "Description": "An IM pressure rate of change, following \"plugged\" detection, that indicates the delayed slowing of the pressure increase characteristic of a vial being filled, as distinct from the rapid drop to stability that occurs when the needle is plugged by a stopper."
+        },
+        {
+          "ParameterName": "GRCompleteTorrPerMinute",
+          "Value": 0.4,
+          "Description": "The graphitization reaction is considered complete when the declining pressure rate of change falls below this value."
+        },
+        {
+          "ParameterName": "RoomTemperature",
+          "Value": 21.0,
+          "Description": "Typical room temperature in the lab."
+        },
+        {
+          "ParameterName": "SulfurTrapTemperature",
+          "Value": 400.0,
+          "Description": "Reaction temperature for trapping trace sulfur contamination in a CO2 sample onto iron powder."
+        },
+        {
+          "ParameterName": "IronPreconditioningTemperature",
+          "Value": 580.0,
+          "Description": "Reaction temperature for preparing iron powder with H2 for use as a CO2 reduction catalyst."
+        },
+        {
+          "ParameterName": "IronPreconditioningTemperatureCushion",
+          "Value": 10.0,
+          "Description": "Less than this error is near enough to the Fe Prep reaction temperature to begin the process."
+        },
+        {
+          "ParameterName": "CollectionMinutes",
+          "Value": 4.0,
+          "Description": "Time to wait for CO2 to move from InletPort to the FirstTrap."
+        },
+        {
+          "ParameterName": "ExtractionMinutes",
+          "Value": 4.0,
+          "Description": "Time to spend extracting CO2 from the VTT into the MC."
+        },
+        {
+          "ParameterName": "CO2TransferMinutes",
+          "Value": 4.0,
+          "Description": "Time to wait for CO2 transfer between chambers."
+        },
+        {
+          "ParameterName": "MeasurementSeconds",
+          "Value": 15.0,
+          "Description": "How long to average a measurement."
+        },
+        {
+          "ParameterName": "GRFirstEvacuationMinutes",
+          "Value": 0.0,
+          "Description": "How long to evacuate freshly serviced graphite reactors."
+        },
+        {
+          "ParameterName": "MinimumGRMinutes",
+          "Value": 0.0,
+          "Description": "Minimum Graphitization time."
+        },
+        {
+          "ParameterName": "SplitEquilibrationSeconds",
+          "Value": 0.0,
+          "Description": "After expanding a sample into a larger section, how long to wait before subdividing it."
+        },
+        {
+          "ParameterName": "IronPreconditioningMinutes",
+          "Value": 15.0,
+          "Description": "Duration of iron powder preparation process."
+        },
+        {
+          "ParameterName": "QuartzFurnaceWarmupMinutes",
+          "Value": 10.0,
+          "Description": "How long after turn-on the quartz media takes to reach its functional temperature range."
+        },
+        {
+          "ParameterName": "SulfurTrapMinutes",
+          "Value": 20.0,
+          "Description": "Duration of the sulfur trapping process."
+        },
+        {
+          "ParameterName": "H2_CO2GraphitizationRatio",
+          "Value": 2.3,
+          "Description": "Target H2:CO2 ratio for graphitization, providing excess hydogen to speed reaction."
+        },
+        {
+          "ParameterName": "H2DensityAdjustment",
+          "Value": 0.76,
+          "Description": "Estimated appropriate initial GM H2 pressure reduction to compensate for higher density of H2 in frozen standard GR coldfinger."
+        },
+        {
+          "ParameterName": "SmallSampleMicrogramsCarbon",
+          "Value": 10.0,
+          "Description": "A sample with less than this much carbon is processed as \"small.\""
+        },
+        {
+          "ParameterName": "MinimumUgCThatPermits_d13CSplit",
+          "Value": 1000.0,
+          "Description": "The minimum Aliquot mass (in micrograms) sufficient to provide a d13C split."
+        },
+        {
+          "ParameterName": "DilutedSampleMicrogramsCarbon",
+          "Value": 0.0,
+          "Description": "The minimum final mass for a diluted sample. Dilution is disabled unless DilutedSampleMicrogramsCarbon > SmallSampleMicrogramsCarbon"
+        },
+        {
+          "ParameterName": "MaximumSampleMicrogramsCarbon",
+          "Value": 1000.0,
+          "Description": "Discard CO2 splits as long as the sample contains more than this much carbon."
+        },
+        {
+          "ParameterName": "IpEvacuationPressure",
+          "Value": 0.1,
+          "Description": "Pressure to use when evacuating an IP."
+        },
+        {
+          "ParameterName": "CollectUntilTemperatureRises",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when the Inlet Port temperature rises to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilTemperatureFalls",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when the Inlet Port temperature falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectCloseIpAtPressure",
+          "Value": "NaN",
+          "Description": "During sample collection, close the Inlet Port when the Inlet Manifold pressure falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectCloseIpAtCtPressure",
+          "Value": "NaN",
+          "Description": "During sample collection, close the Inlet Port when the Coil Trap pressure falls to this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilUgc",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when amount of carbon in the Coil Trap reaches this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilMinutes",
+          "Value": "NaN",
+          "Description": "Stop collecting into the coil trap when this much time has elapsed, provided that the value is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "CollectUntilCtPressureFalls",
+          "Value": 0.2,
+          "Description": "Stop collecting when the Coil Trap pressure falls to or below this value, provided that it is a number (i.e., not NaN)."
+        },
+        {
+          "ParameterName": "IpSetpoint",
+          "Value": 1000.0,
+          "Description": "The Inlet Port sample furnace's target setpoint (the final setpoint when ramping)."
+        },
+        {
+          "ParameterName": "WaitTimerMinutes",
+          "Value": 10.0,
+          "Description": "How many minutes to wait."
+        }
+      ],
+      "SulfurSuspected": false,
+      "Take_d13C": false,
+      "Grams": 0.009,
+      "MicrogramsDilutionCarbon": 0.0,
+      "TotalMicrogramsCarbon": 2505.861506163157,
+      "Discards": 5,
+      "SelectedMicrogramsCarbon": 923.0311920529797,
+      "Micrograms_d13C": 0.0,
+      "d13CPartsPerMillion": 0.0,
+      "Aliquots": [
+        {
+          "$type": "AeonHacs.Components.Aliquot, AeonHacs.Core",
+          "Name": "23SD-9",
+          "Sample": "Sample106",
+          "GraphiteReactor": "GR6",
+          "MicrogramsCarbon": 923.0311920529797,
+          "InitialGmH2Pressure": 920.6789473684202,
+          "FinalGmH2Pressure": 786.4774834437108,
+          "GRStartPressure": 703.9000000000001,
+          "H2CO2PressureRatio": 2.315247778060961,
+          "ExpectedResidualPressure": 0.4611084599579259,
+          "ResidualPressure": 0.0,
+          "ResidualMeasured": true,
+          "Tries": 13
+        }
+      ]
+    }
+  },
   "HacsComponents": {
     "IpFan1": {
       "$type": "AeonHacs.Components.IpFan, AeonHacs.Core",
@@ -7431,24 +9519,25 @@
       "State": "Monitor",
       "IdleTimeout": 500,
       "LogEverything": false
+    },
+    "Power": {
+      "$type": "AeonHacs.Components.Power, AeonHacs.Core",
+      "Name": "Power",
+      "DC5V": "DC5VPower",
+      "MainsDetect": "DC5VMainsDetect",
+      "MainsDetectMinimumVoltage": 4.0,
+      "MilliSecondsMainsDownLimit": 5000
     }
-  },
-  "Power": {
-    "Name": "Power",
-    "DC5V": "DC5VPower",
-    "MainsDetect": "DC5VMainsDetect",
-    "MainsDetectMinimumVoltage": 4.0,
-    "MilliSecondsMainsDownLimit": 5000
   },
   "CegsPreferences": {
     "Name": "CegsPreferences",
     "EnableWatchdogs": true,
     "EnableAutozero": true,
     "PriorGR": "GR6",
-    "NextGraphiteNumber": 1,
+    "NextGraphiteNumber": 13,
     "DefaultMassUnits": "mg",
     "Take13CDefault": false,
-    "SampleCounter": 1,
+    "SampleCounter": 107,
     "MaximumAliquotsPerSample": 3,
     "EnableSmallReactors": false,
     "UpdateIntervalMilliseconds": 50,
@@ -7688,9 +9777,56 @@
         "ParameterName": "WaitTimerMinutes",
         "Value": 10.0,
         "Description": "How many minutes to wait."
+      },
+      {
+        "ParameterName": "MaximumMinutesGrToReachTemperature",
+        "Value": 20.0,
+        "Description": "The maximum time a graphite reactor should take to reach its setpoint."
+      },
+      {
+        "ParameterName": "MaximumMinutesIpToReachTemperature",
+        "Value": 10.0,
+        "Description": "The maximum time an inlet port should take to reach its setpoint."
+      },
+      {
+        "ParameterName": "IpMinutes",
+        "Value": 60.0,
+        "Description": "Set time for the IP Timer."
+      },
+      {
+        "ParameterName": "IpTemperatureCushion",
+        "Value": 20.0,
+        "Description": "The acceptable range around IpSetpoint considered at temperature."
+      },
+      {
+        "ParameterName": "MaximumSecondsAdmitGas",
+        "Value": 60.0,
+        "Description": "The longest time allowed for admitting gas."
+      },
+      {
+        "ParameterName": "KeepFeUnderH2",
+        "Value": 0.0,
+        "Description": "Whether to evacuate H2 after preconditioning graphite reactors."
       }
     ]
   },
   "AutoFeedEnabled": false,
-  "InletPort": "IP1"
+  "Power": "Power",
+  "SampleLog": "SampleLog",
+  "TestLog": "TestLog",
+  "Ambient": "Ambient",
+  "VacuumSystem": "VacuumSystem",
+  "InletManifold": "IM",
+  "CoilTrap": "CT",
+  "VariableTemperatureTrap": "VTT",
+  "MeasurementChamber": "MC",
+  "SplitSection": "Split",
+  "d13CSection": null,
+  "GraphiteManifold": "GM",
+  "d13CManifold": null,
+  "VTT_MC": "VTT_MC",
+  "MC_Split": "MC_Split",
+  "SampleMeter": "ugCinMC",
+  "IpOvenRamper": null,
+  "InletPort": "IP5"
 }
