@@ -957,7 +957,7 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "ZeroOffset",
-            "Argument": "x-0.0025234177614049465"
+            "Argument": "x+0.0049652414957841295"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
@@ -1002,7 +1002,7 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "ZeroOffset",
-            "Argument": "x+0.009825735725874273"
+            "Argument": "x+0.02275180766449467"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
@@ -1051,7 +1051,7 @@
               {
                 "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
                 "Name": "ZeroOffset",
-                "Argument": "x-0.9976"
+                "Argument": "x-0.9964"
               },
               {
                 "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
@@ -1111,7 +1111,7 @@
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Power": 2.0,
-        "StepChange": 0.05
+        "StepChange": 0.015
       },
       "Conversion": {
         "Name": "VoltageCorrection",
@@ -1119,7 +1119,7 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "ZeroOffset",
-            "Argument": "x-0.02823460387342588"
+            "Argument": "x-0.03400472868766232"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
@@ -1149,14 +1149,14 @@
       "Ratiometric": false,
       "MaxValue": 1000.0,
       "MinValue": 0.0,
-      "Sensitivity": 0.1,
-      "Resolution": 0.1,
+      "Sensitivity": 0.01,
+      "Resolution": 0.01,
       "ResolutionIsProportional": false,
       "Filter": {
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
-        "Power": 2.0,
-        "StepChange": 0.1
+        "Power": 1.5,
+        "StepChange": 0.003
       },
       "Conversion": {
         "Name": "VoltageCorrection",
@@ -1164,7 +1164,7 @@
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
             "Name": "ZeroOffset",
-            "Argument": "x-0.047916350787511434"
+            "Argument": "x-0.04911343676406966"
           },
           {
             "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
@@ -2454,7 +2454,7 @@
     "vHV": {
       "$type": "AeonHacs.Components.CpwValve, AeonHacs.Core",
       "Name": "vHV",
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -2496,7 +2496,7 @@
     "vB": {
       "$type": "AeonHacs.Components.CpwValve, AeonHacs.Core",
       "Name": "vB",
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -2517,7 +2517,7 @@
     "vR": {
       "$type": "AeonHacs.Components.CpwValve, AeonHacs.Core",
       "Name": "vR",
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -2538,14 +2538,14 @@
     "vIM_VM": {
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vIM_VM",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -2632,14 +2632,14 @@
     "vCT_VM": {
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vCT_VM",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -2726,14 +2726,14 @@
     "vGM_VM": {
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vGM_VM",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3468,14 +3468,14 @@
     "vIM_CT": {
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vIM_CT",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3562,14 +3562,14 @@
     "vCT_VTT": {
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vCT_VTT",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3656,14 +3656,14 @@
     "vVTT_MC": {
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vVTT_MC",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3750,14 +3750,14 @@
     "vMC_MCP1": {
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vMC_MCP1",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3844,14 +3844,14 @@
     "vMC_MCP2": {
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vMC_MCP2",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3938,14 +3938,14 @@
     "vMC_Split": {
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vMC_Split",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -4032,14 +4032,14 @@
     "vSplit_GM": {
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vSplit_GM",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -6097,7 +6097,7 @@
       "Liters": null,
       "LevelSensor": "tLNManifold",
       "OverflowSensor": "tLNOverflow",
-      "OverflowTrigger": 25,
+      "OverflowTrigger": 15,
       "MinimumLiters": 10,
       "TargetTemperature": -185,
       "FillTrigger": 5,
@@ -6336,7 +6336,7 @@
       "RoughingValve": "vR",
       "VacuumManifold": "VM",
       "MySection": "VS1All",
-      "State": "Standby",
+      "State": "Evacuate",
       "TargetPressure": 0.0005,
       "BaselinePressure": 0.0001,
       "GoodBackingPressure": 4.9,
@@ -6345,7 +6345,7 @@
       "LowVacuumRequiredPressure": 8.0,
       "StateStopwatch": {
         "IsRunning": true,
-        "Accumulated": 11369
+        "Accumulated": 20352857
       },
       "IdleTimeout": 50
     }
