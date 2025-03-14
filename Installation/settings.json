@@ -1010,7 +1010,7 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Item1": -0.0062,
+                "Item1": -0.004149920685779149,
                 "Item2": 0.0
               },
               {
@@ -1062,7 +1062,7 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Item1": 0.011367254318755866,
+                "Item1": -0.017568431637302435,
                 "Item2": 0.0
               },
               {
@@ -1189,7 +1189,7 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Item1": 0.015949529668569388,
+                "Item1": 0.045764630858317876,
                 "Item2": 0.0
               },
               {
@@ -1241,7 +1241,7 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Item1": 0.04982773993023356,
+                "Item1": 0.07776828842923801,
                 "Item2": 0.0
               },
               {
@@ -1436,7 +1436,7 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Item1": 0.4796059159027633,
+                "Item1": 0.48061015278731534,
                 "Item2": 0.0
               },
               {
@@ -1482,7 +1482,7 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Item1": 0.4687852740034947,
+                "Item1": 0.4791533074369616,
                 "Item2": 0.0
               },
               {
@@ -1528,7 +1528,7 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Item1": 0.47389738551354116,
+                "Item1": 0.4608353378382715,
                 "Item2": 0.0
               },
               {
@@ -1574,7 +1574,7 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Item1": 0.49034310880428855,
+                "Item1": 0.48730765613032195,
                 "Item2": 0.0
               },
               {
@@ -1620,7 +1620,7 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Item1": 0.472094305991275,
+                "Item1": 0.467198182117029,
                 "Item2": 0.0
               },
               {
@@ -1666,7 +1666,7 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Item1": 0.49521521010846636,
+                "Item1": 0.4934599767043639,
                 "Item2": 0.0
               },
               {
@@ -6183,7 +6183,7 @@
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 600.0,
       "StopAction": "None",
-      "OnOffState": "On",
+      "OnOffState": "Off",
       "UnitSymbol": "°C",
       "Ratiometric": false,
       "MaxValue": 0.0,
