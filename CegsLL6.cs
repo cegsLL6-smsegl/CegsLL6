@@ -61,12 +61,14 @@ public partial class CegsLL6 : Cegs
         ProcessDictionary["Turn off IP furnaces"] = TurnOffIPFurnaces;
         ProcessDictionary["Discard IP gases"] = DiscardIPGases;
         ProcessDictionary["Close IP"] = CloseIP;
+        ProcessDictionary["Prepare for collection"] = PrepareForCollection;
         ProcessDictionary["Start collecting"] = StartCollecting;
         ProcessDictionary["Clear collection conditions"] = ClearCollectionConditions;
         ProcessDictionary["Collect until condition met"] = CollectUntilConditionMet;
         ProcessDictionary["Stop collecting"] = StopCollecting;
         ProcessDictionary["Stop collecting immediately"] = StopCollectingImmediately;
         ProcessDictionary["Stop collecting after bleed down"] = StopCollectingAfterBleedDown;
+        ProcessDictionary["Evacuate and Freeze first trap"] = FreezeFirstTrap;
         ProcessDictionary["Evacuate and Freeze VTT"] = FreezeVtt;
         ProcessDictionary["Admit Dead CO2 into MC"] = AdmitDeadCO2;
         ProcessDictionary["Purify CO2 in MC"] = CleanupCO2InMC;
@@ -75,10 +77,18 @@ public partial class CegsLL6 : Cegs
         Separators.Add(ProcessDictionary.Count);
 
         // Granular inlet port & sample process control
+        ProcessDictionary["Reset Inlet Port to Loaded"] = ResetIpToLoaded;
+        ProcessDictionary["Freeze the Inlet Port"] = FreezeIp;
+        ProcessDictionary["Raise LN on the Inlet Port"] = RaiseLNIp;
+        ProcessDictionary["Thaw the Inlet Port"] = ThawIp;
+        ProcessDictionary["Raise IP furnaces"] = RaiseIpFurnaces;
         ProcessDictionary["Turn on quartz furnace"] = TurnOnIpQuartzFurnace;
         ProcessDictionary["Turn off quartz furnace"] = TurnOffIpQuartzFurnace;
+        ProcessDictionary["Disable sample setpoint ramping"] = DisableIpRamp;
+        ProcessDictionary["Enable sample setpoint ramping"] = EnableIpRamp;
         ProcessDictionary["Turn on sample furnace"] = TurnOnIpSampleFurnace;
         ProcessDictionary["Adjust sample setpoint"] = AdjustIpSetpoint;
+        ProcessDictionary["Adjust sample ramp rate"] = AdjustIpRampRate;
         ProcessDictionary["Wait for sample to rise to setpoint"] = WaitIpRiseToSetpoint;
         ProcessDictionary["Wait for sample to fall to setpoint"] = WaitIpFallToSetpoint;
         ProcessDictionary["Turn off sample furnace"] = TurnOffIpSampleFurnace;
