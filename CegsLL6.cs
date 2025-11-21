@@ -40,6 +40,7 @@ public partial class CegsLL6 : Cegs
 
         // Main process continuations
         ProcessDictionary["Collect, etc."] = CollectEtc;
+        ProcessDictionary["Transfer CO2 to VTT, etc."] = TransferCO2FromCTToVttEtc;
         ProcessDictionary["Extract, etc."] = ExtractEtc;
         ProcessDictionary["Measure, etc."] = MeasureEtc;
         ProcessDictionary["Graphitize, etc."] = GraphitizeEtc;
@@ -48,6 +49,7 @@ public partial class CegsLL6 : Cegs
         // Top-level steps for standard protocol
         ProcessDictionary["Admit sealed CO2 to InletPort"] = AdmitSealedCO2IP;
         ProcessDictionary["Collect CO2 from InletPort"] = Collect;
+        ProcessDictionary["Transfer CO2 from CT to VTT"] = TransferCO2FromCTToVTT;
         ProcessDictionary["Extract"] = Extract;
         ProcessDictionary["Measure"] = Measure;
         ProcessDictionary["Discard excess CO2 by splits"] = DiscardSplit;
@@ -65,6 +67,7 @@ public partial class CegsLL6 : Cegs
         ProcessDictionary["Turn off IP furnaces"] = TurnOffIPFurnaces;
         ProcessDictionary["Discard IP gases"] = DiscardIPGases;
         ProcessDictionary["Close IP"] = CloseIP;
+        ProcessDictionary["Isolate IP"] = IsolateIP;
         ProcessDictionary["Prepare for collection"] = PrepareForCollection;
         ProcessDictionary["Start collecting"] = StartCollecting;
         ProcessDictionary["Clear collection conditions"] = ClearCollectionConditions;
@@ -81,8 +84,10 @@ public partial class CegsLL6 : Cegs
         Separators.Add(ProcessDictionary.Count);
 
         // Split sample processing
-        ProcessDictionary["Create a sample split."] = CreateSampleSplit;
-        ProcessDictionary["Collect sample gas, then launch Extract, etc"] = CollectAndLaunchExctractEtc;
+        ProcessDictionary["Create a sample split"] = CreateSampleSplit;
+        ProcessDictionary["Wait for VTT..GM to be free"] = WaitForCegs;
+        ProcessDictionary["Launch Extract, etc."] = StartExtractEtc;
+        ProcessDictionary["Collect sample gas, then launch Extract, etc."] = CollectAndLaunchExtractEtc;
         ProcessDictionary["Graphitize all collected splits"] = GraphitizeSplits;
         Separators.Add(ProcessDictionary.Count);
 
@@ -94,11 +99,12 @@ public partial class CegsLL6 : Cegs
         ProcessDictionary["Raise IP furnaces"] = RaiseIpFurnaces;
         ProcessDictionary["Turn on quartz furnace"] = TurnOnIpQuartzFurnace;
         ProcessDictionary["Turn off quartz furnace"] = TurnOffIpQuartzFurnace;
-        ProcessDictionary["Disable sample setpoint ramping"] = DisableIpRamp;
-        ProcessDictionary["Enable sample setpoint ramping"] = EnableIpRamp;
         ProcessDictionary["Turn on sample furnace"] = TurnOnIpSampleFurnace;
-        ProcessDictionary["Adjust sample setpoint"] = AdjustIpSetpoint;
-        ProcessDictionary["Adjust sample ramp rate"] = AdjustIpRampRate;
+        // These should no longer be required; they are now effected in SetParameter();
+        //ProcessDictionary["Disable sample setpoint ramping"] = DisableIpRamp;
+        //ProcessDictionary["Enable sample setpoint ramping"] = EnableIpRamp;
+        //ProcessDictionary["Adjust sample setpoint"] = AdjustIpSetpoint;
+        //ProcessDictionary["Adjust sample ramp rate"] = AdjustIpRampRate;
         ProcessDictionary["Wait for sample to rise to setpoint"] = WaitIpRiseToSetpoint;
         ProcessDictionary["Wait for sample to fall to setpoint"] = WaitIpFallToSetpoint;
         ProcessDictionary["Turn off sample furnace"] = TurnOffIpSampleFurnace;
@@ -111,7 +117,6 @@ public partial class CegsLL6 : Cegs
         Separators.Add(ProcessDictionary.Count);
 
         // Transferring CO2
-        ProcessDictionary["Transfer CO2 from CT to VTT"] = TransferCO2FromCTToVTT;
         ProcessDictionary["Transfer CO2 from MC to VTT"] = TransferCO2FromMCToVTT;
         ProcessDictionary["Transfer CO2 from MC to GR"] = TransferCO2FromMCToGR;
         ProcessDictionary["Transfer CO2 from prior GR to MC"] = TransferCO2FromGRToMC;
