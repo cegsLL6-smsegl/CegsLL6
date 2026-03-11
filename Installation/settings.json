@@ -914,7 +914,7 @@
       ]
     }
   },
-  "Description": "Carbon extraction and graphitization system, 6 GRs, 6 inlet ports, low-level valves",
+  "Description": "CEGS LL6 at at SMSEGL in Zhuhai, China",
   "DeviceManagers": {
     "Daq": {
       "$type": "AeonHacs.Components.LabJackU6, AeonHacs.Core",
@@ -936,7 +936,7 @@
         "ai3": "pGM",
         "ai4": "pIM",
         "ai96": "pForeline",
-        "ai97": "pVM_LP",
+        "ai97": "pVM_HP",
         "ai98": "pVM_IG",
         "ai104": "tMC",
         "ai105": "pGR6",
@@ -945,7 +945,6 @@
         "ai108": "pGR3",
         "ai109": "pGR2",
         "ai110": "pGR1",
-        "ai111": "pVM_GP",
         "ai123": "DC5VPower",
         "ai124": "DC5VMainsDetect",
         "ai125": "pAmbient",
@@ -963,7 +962,7 @@
         "SerialDevice": {
           "RtsMode": "Enabled",
           "PortSettings": {
-            "PortName": "COM10",
+            "PortName": "COM3",
             "BaudRate": 115200,
             "Parity": "None",
             "DataBits": 8,
@@ -992,7 +991,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 250,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": 1000
       },
       "IdleTimeout": -1,
@@ -1019,7 +1018,7 @@
         "SerialDevice": {
           "RtsMode": "Enabled",
           "PortSettings": {
-            "PortName": "COM11",
+            "PortName": "COM4",
             "BaudRate": 115200,
             "Parity": "None",
             "DataBits": 8,
@@ -1048,7 +1047,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 250,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": 1000
       },
       "IdleTimeout": -1,
@@ -1075,7 +1074,7 @@
         "SerialDevice": {
           "RtsMode": "Enabled",
           "PortSettings": {
-            "PortName": "COM12",
+            "PortName": "COM7",
             "BaudRate": 115200,
             "Parity": "None",
             "DataBits": 8,
@@ -1104,7 +1103,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 250,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": 1000
       },
       "IdleTimeout": -1,
@@ -1142,7 +1141,7 @@
         "SerialDevice": {
           "RtsMode": "Enabled",
           "PortSettings": {
-            "PortName": "COM13",
+            "PortName": "COM8",
             "BaudRate": 115200,
             "Parity": "None",
             "DataBits": 8,
@@ -1171,7 +1170,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 250,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": 1000
       },
       "IdleTimeout": -1,
@@ -1198,7 +1197,7 @@
         "SerialDevice": {
           "RtsMode": "Enabled",
           "PortSettings": {
-            "PortName": "COM6",
+            "PortName": "COM9",
             "BaudRate": 115200,
             "Parity": "None",
             "DataBits": 8,
@@ -1227,7 +1226,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 90,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": -1
       },
       "SerialController": {
@@ -1236,7 +1235,7 @@
         "SerialDevice": {
           "RtsMode": "Enabled",
           "PortSettings": {
-            "PortName": "COM7",
+            "PortName": "COM10",
             "BaudRate": 115200,
             "Parity": "None",
             "DataBits": 8,
@@ -1265,7 +1264,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 200,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": -1
       },
       "IdleTimeout": -1,
@@ -1327,7 +1326,7 @@
         "SerialDevice": {
           "RtsMode": "Enabled",
           "PortSettings": {
-            "PortName": "COM5",
+            "PortName": "COM11",
             "BaudRate": 115200,
             "Parity": "None",
             "DataBits": 8,
@@ -1356,7 +1355,7 @@
         "TokenizeCommands": true,
         "IgnoreUnexpectedResponses": true,
         "ResponseTimeout": 200,
-        "TooManyResponseTimeouts": 5,
+        "TooManyResponseTimeouts": 20,
         "IdleTimeout": -1
       },
       "IdleTimeout": -1,
@@ -1380,7 +1379,7 @@
       "$type": "AeonHacs.Components.DigitalOutput, AeonHacs.Core",
       "Name": "pVM_IG.Enable",
       "Description": "",
-      "OnOffState": "Off",
+      "OnOffState": "On",
       "StopAction": "TurnOff"
     },
     "fan1": {
@@ -1425,32 +1424,6 @@
       "Rising": 0.0,
       "ZerosToAverage": 30
     },
-    "pVM_HP": {
-      "$type": "AeonHacs.Components.DualManometer, AeonHacs.Core",
-      "Name": "pVM_HP",
-      "Description": "Vacuum manifold high pressure",
-      "HighPressureManometer": "pVM_GP",
-      "LowPressureManometer": "pVM_LP",
-      "MaximumLowPressure": 3.0,
-      "MinimumHighPressure": 4.0,
-      "SwitchpointPressure": 0.0,
-      "MillisecondsToValid": 0,
-      "MinimumMillisecondsOff": 0,
-      "UnitSymbol": "Torr",
-      "Ratiometric": false,
-      "MaxValue": 0.0,
-      "MinValue": 0.0,
-      "Sensitivity": 1E-05,
-      "Resolution": 0.01,
-      "ResolutionIsProportional": true,
-      "Filter": null,
-      "Conversion": null,
-      "RateOfChange": null,
-      "Stable": 0.0,
-      "Falling": 0.0,
-      "Rising": 0.0,
-      "ZerosToAverage": 30
-    },
     "pMC": {
       "$type": "AeonHacs.Components.AIManometer, AeonHacs.Core",
       "Name": "pMC",
@@ -1469,8 +1442,8 @@
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Description": "",
-        "Power": 2.0,
-        "StepChange": 0.01
+        "Power": 3.0,
+        "StepChange": 0.18
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -1480,12 +1453,12 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Input": 0.016655486803451903,
+                "Input": -0.004813131831506445,
                 "Output": 0.0
               },
               {
-                "Input": 6.8324,
-                "Output": 104.4
+                "Input": 6.67,
+                "Output": 100.0
               }
             ]
           }
@@ -1514,15 +1487,15 @@
       "Ratiometric": false,
       "MaxValue": 10.0,
       "MinValue": 0.0,
-      "Sensitivity": 0.0001,
-      "Resolution": 0.0001,
+      "Sensitivity": 0.001,
+      "Resolution": 0.001,
       "ResolutionIsProportional": false,
       "Filter": {
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Description": "",
         "Power": 2.0,
-        "StepChange": 0.005
+        "StepChange": 0.02
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -1532,12 +1505,12 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Input": 0.006641828845705464,
+                "Input": -0.011319322854687858,
                 "Output": 0.0
               },
               {
-                "Input": 8.3502,
-                "Output": 10.45
+                "Input": 8.1718,
+                "Output": 10.0
               }
             ]
           }
@@ -1561,35 +1534,58 @@
       "Description": "Foreline pressure",
       "MaximumVoltage": 10.0,
       "AnalogInputMode": "SingleEnded",
-      "MinimumVoltage": -10.0,
+      "MinimumVoltage": 0.0,
       "UnitSymbol": "Torr",
-      "Ratiometric": true,
-      "MaxValue": 1551.0,
+      "Ratiometric": false,
+      "MaxValue": 1000.0,
       "MinValue": 0.0,
-      "Sensitivity": 0.1,
-      "Resolution": 0.1,
-      "ResolutionIsProportional": false,
+      "Sensitivity": 0.0001,
+      "Resolution": 0.01,
+      "ResolutionIsProportional": true,
       "Filter": {
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Description": "",
         "Power": 2.0,
-        "StepChange": 0.005
+        "StepChange": 0.036
       },
       "Conversion": {
-        "Name": "ValueConversion",
+        "Name": "",
         "Operations": [
           {
-            "$type": "AeonHacs.PchipInterpolator, AeonHacs.Core",
-            "Name": "VoltsToTorr",
-            "CalibrationData": [
+            "$type": "AeonHacs.Utilities.OperationSet, AeonHacs.Core",
+            "Name": "VoltageCorrection",
+            "Operations": [
               {
-                "Input": 0.49621754928716183,
-                "Output": 0.0
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "ZeroOffset",
+                "Argument": "x-0.9964"
               },
               {
-                "Input": 2.3398,
-                "Output": 699.6
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "VRef Correction",
+                "Argument": "x+0.990232613636314"
+              },
+              {
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "Gain",
+                "Argument": "x*1.00986372921794"
+              }
+            ]
+          },
+          {
+            "$type": "AeonHacs.Utilities.OperationSet, AeonHacs.Core",
+            "Name": "ValueConversion",
+            "Operations": [
+              {
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "SensorReference",
+                "Argument": "x-6"
+              },
+              {
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "SensorExponentialGain",
+                "Argument": "10^x"
               }
             ]
           }
@@ -1602,9 +1598,9 @@
         "MaxIntervalMilliseconds": 1000.0,
         "Resolution": 0.01
       },
-      "Stable": 0.5,
-      "Falling": -0.5,
-      "Rising": 0.5,
+      "Stable": 0.1,
+      "Falling": -0.1,
+      "Rising": 0.1,
       "ZerosToAverage": 30
     },
     "pIM": {
@@ -1615,8 +1611,8 @@
       "AnalogInputMode": "SingleEnded",
       "MinimumVoltage": -10.0,
       "UnitSymbol": "Torr",
-      "Ratiometric": true,
-      "MaxValue": 1551.0,
+      "Ratiometric": false,
+      "MaxValue": 1000.0,
       "MinValue": 0.0,
       "Sensitivity": 0.1,
       "Resolution": 0.1,
@@ -1626,7 +1622,7 @@
         "Name": "",
         "Description": "",
         "Power": 2.0,
-        "StepChange": 0.005
+        "StepChange": 0.015
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -1636,12 +1632,12 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Input": 0.49621754928716183,
+                "Input": 0.03369658267281209,
                 "Output": 0.0
               },
               {
-                "Input": 2.3398,
-                "Output": 699.6
+                "Input": 8.1451,
+                "Output": 1000.0
               }
             ]
           }
@@ -1667,18 +1663,18 @@
       "AnalogInputMode": "SingleEnded",
       "MinimumVoltage": -10.0,
       "UnitSymbol": "Torr",
-      "Ratiometric": true,
-      "MaxValue": 1551.0,
+      "Ratiometric": false,
+      "MaxValue": 1100.0,
       "MinValue": 0.0,
-      "Sensitivity": 0.1,
-      "Resolution": 0.1,
+      "Sensitivity": 0.01,
+      "Resolution": 0.01,
       "ResolutionIsProportional": false,
       "Filter": {
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Description": "",
-        "Power": 2.0,
-        "StepChange": 0.005
+        "Power": 1.5,
+        "StepChange": 0.003
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -1688,12 +1684,12 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Input": 0.5063379152492451,
+                "Input": 0.04717844218319886,
                 "Output": 0.0
               },
               {
-                "Input": 2.3542,
-                "Output": 699.6
+                "Input": 8.1735,
+                "Output": 1000.0
               }
             ]
           }
@@ -1711,59 +1707,13 @@
       "Rising": 0.5,
       "ZerosToAverage": 30
     },
-    "pVM_GP": {
+    "pVM_HP": {
       "$type": "AeonHacs.Components.AIManometer, AeonHacs.Core",
-      "Name": "pVM_GP",
-      "Description": "Vacuum manifold gross pressure",
+      "Name": "pVM_HP",
+      "Description": "Vacuum manifold high pressure",
       "MaximumVoltage": 10.0,
       "AnalogInputMode": "SingleEnded",
-      "MinimumVoltage": -10.0,
-      "UnitSymbol": "Torr",
-      "Ratiometric": true,
-      "MaxValue": 1551.0,
-      "MinValue": 0.0,
-      "Sensitivity": 0.1,
-      "Resolution": 0.1,
-      "ResolutionIsProportional": false,
-      "Filter": {
-        "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
-        "Name": "",
-        "Description": "",
-        "Power": 2.0,
-        "StepChange": 0.005
-      },
-      "Conversion": {
-        "Name": "ValueConversion",
-        "Operations": [
-          {
-            "$type": "AeonHacs.PchipInterpolator, AeonHacs.Core",
-            "Name": "VoltsToTorr",
-            "CalibrationData": [
-              {
-                "Input": 0.491840002790119,
-                "Output": 0.0
-              },
-              {
-                "Input": 2.3385,
-                "Output": 699.6
-              }
-            ]
-          }
-        ]
-      },
-      "RateOfChange": null,
-      "Stable": 0.5,
-      "Falling": -0.5,
-      "Rising": 0.5,
-      "ZerosToAverage": 30
-    },
-    "pVM_LP": {
-      "$type": "AeonHacs.Components.AIManometer, AeonHacs.Core",
-      "Name": "pVM_LP",
-      "Description": "Vacuum manifold low pressure",
-      "MaximumVoltage": 10.0,
-      "AnalogInputMode": "SingleEnded",
-      "MinimumVoltage": -10.0,
+      "MinimumVoltage": 0.0,
       "UnitSymbol": "Torr",
       "Ratiometric": false,
       "MaxValue": 1551.0,
@@ -1776,50 +1726,29 @@
         "Name": "",
         "Description": "",
         "Power": 2.0,
-        "StepChange": 0.02
+        "StepChange": 0.01
       },
       "Conversion": {
         "Name": "",
         "Operations": [
           {
-            "$type": "AeonHacs.PchipInterpolator, AeonHacs.Core",
+            "$type": "AeonHacs.Utilities.OperationSet, AeonHacs.Core",
             "Name": "VoltageCorrection",
-            "CalibrationData": [
+            "Operations": [
               {
-                "Input": 1.2919,
-                "Output": 0.8543
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "ZeroOffset",
+                "Argument": "x-0.9976"
               },
               {
-                "Input": 2.1859,
-                "Output": 1.0294
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "VRef Correction",
+                "Argument": "x+0.990232613636314"
               },
               {
-                "Input": 3.3536,
-                "Output": 2.0086
-              },
-              {
-                "Input": 4.5972,
-                "Output": 3.0
-              },
-              {
-                "Input": 4.9702,
-                "Output": 5.0382
-              },
-              {
-                "Input": 5.9773,
-                "Output": 6.0673
-              },
-              {
-                "Input": 6.7009,
-                "Output": 6.7898
-              },
-              {
-                "Input": 7.8707,
-                "Output": 7.9636
-              },
-              {
-                "Input": 8.7574,
-                "Output": 8.8448
+                "$type": "AeonHacs.Utilities.Arithmetic, AeonHacs.Core",
+                "Name": "Gain",
+                "Argument": "x*1.00986372921794"
               }
             ]
           },
@@ -1882,8 +1811,8 @@
                 "Output": 0.0
               },
               {
-                "Input": 8.0091,
-                "Output": 9.98
+                "Input": 10.0,
+                "Output": 10.0
               }
             ]
           },
@@ -1940,7 +1869,7 @@
         "Name": "",
         "Description": "",
         "Power": 2.0,
-        "StepChange": 0.005
+        "StepChange": 0.02
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -1950,12 +1879,12 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Input": 0.5024755306109031,
+                "Input": 0.4780539051293287,
                 "Output": 0.0
               },
               {
-                "Input": 2.3584,
-                "Output": 699.6
+                "Input": 2.4573,
+                "Output": 760.0
               }
             ]
           }
@@ -1986,7 +1915,7 @@
         "Name": "",
         "Description": "",
         "Power": 2.0,
-        "StepChange": 0.005
+        "StepChange": 0.02
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -1996,12 +1925,12 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Input": 0.48502904717936063,
+                "Input": 0.4761324042579381,
                 "Output": 0.0
               },
               {
-                "Input": 2.3389,
-                "Output": 699.6
+                "Input": 2.4398,
+                "Output": 760.0
               }
             ]
           }
@@ -2032,7 +1961,7 @@
         "Name": "",
         "Description": "",
         "Power": 2.0,
-        "StepChange": 0.01
+        "StepChange": 0.02
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -2042,12 +1971,12 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Input": 0.511582771212074,
+                "Input": 0.46678949518749524,
                 "Output": 0.0
               },
               {
-                "Input": 2.351,
-                "Output": 699.6
+                "Input": 2.4581,
+                "Output": 760.0
               }
             ]
           }
@@ -2078,7 +2007,7 @@
         "Name": "",
         "Description": "",
         "Power": 2.0,
-        "StepChange": 0.005
+        "StepChange": 0.02
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -2088,12 +2017,12 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Input": 0.513530566543172,
+                "Input": 0.4895393885423211,
                 "Output": 0.0
               },
               {
-                "Input": 2.3726,
-                "Output": 699.6
+                "Input": 2.4722,
+                "Output": 760.0
               }
             ]
           }
@@ -2124,7 +2053,7 @@
         "Name": "",
         "Description": "",
         "Power": 2.0,
-        "StepChange": 0.005
+        "StepChange": 0.02
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -2134,12 +2063,12 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Input": 0.509687309190977,
+                "Input": 0.4709937998280617,
                 "Output": 0.0
               },
               {
-                "Input": 2.3634,
-                "Output": 699.6
+                "Input": 2.4559,
+                "Output": 760.0
               }
             ]
           }
@@ -2170,7 +2099,7 @@
         "Name": "",
         "Description": "",
         "Power": 2.0,
-        "StepChange": 0.005
+        "StepChange": 0.02
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -2180,12 +2109,12 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Input": 0.499810463714926,
+                "Input": 0.4885557154061693,
                 "Output": 0.0
               },
               {
-                "Input": 2.3489,
-                "Output": 699.6
+                "Input": 2.4906,
+                "Output": 760.0
               }
             ]
           }
@@ -2215,8 +2144,8 @@
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Description": "",
-        "Power": 2.0,
-        "StepChange": 0.01
+        "Power": 2.5,
+        "StepChange": 0.05
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -2226,12 +2155,12 @@
             "Name": "VoltsToTorr",
             "CalibrationData": [
               {
-                "Input": 0.503,
+                "Input": 0.5,
                 "Output": 0.0
               },
               {
-                "Input": 2.3616,
-                "Output": 699.6
+                "Input": 2.4675,
+                "Output": 760.0
               }
             ]
           }
@@ -2272,12 +2201,12 @@
             "Name": "VoltsToDegC",
             "CalibrationData": [
               {
-                "Input": 0.692,
+                "Input": 0.5046,
                 "Output": 15.0
               },
               {
-                "Input": 0.985,
-                "Output": 30.0
+                "Input": 0.9616,
+                "Output": 27.0
               }
             ]
           }
@@ -2307,8 +2236,8 @@
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Description": "",
-        "Power": 2.0,
-        "StepChange": 0.02
+        "Power": 2.5,
+        "StepChange": 0.25
       },
       "Conversion": {
         "Name": "ValueConversion",
@@ -2318,19 +2247,19 @@
             "Name": "VoltsToDegC",
             "CalibrationData": [
               {
-                "Input": 0.758,
-                "Output": 15.1
+                "Input": 0.737,
+                "Output": 15.0
               },
               {
-                "Input": 0.827,
+                "Input": 0.83,
                 "Output": 20.0
               },
               {
-                "Input": 0.93,
-                "Output": 27.1
+                "Input": 0.941,
+                "Output": 27.0
               },
               {
-                "Input": 1.002,
+                "Input": 1.074,
                 "Output": 35.0
               }
             ]
@@ -2582,8 +2511,8 @@
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Description": "",
-        "Power": 1.2,
-        "StepChange": 3.0
+        "Power": 2.0,
+        "StepChange": 5.0
       },
       "Conversion": null,
       "RateOfChange": null,
@@ -2608,7 +2537,7 @@
         "$type": "AeonHacs.ExponentialFilter, AeonHacs.Core",
         "Name": "",
         "Description": "",
-        "Power": 1.2,
+        "Power": 2.0,
         "StepChange": 3.0
       },
       "Conversion": null,
@@ -3170,25 +3099,25 @@
       "Name": "vHV",
       "Description": "Vacuum system high vacuum valve",
       "ValveState": "Opened",
-      "Position": 0,
+      "Position": 850,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
         {
           "Name": "Close",
-          "Value": 1700,
+          "Value": 1850,
           "Incremental": false,
           "Configuration": "t1.0"
         },
         {
           "Name": "Open 45",
-          "Value": 1200,
+          "Value": 1350,
           "Incremental": false,
           "Configuration": "t1.0"
         },
         {
           "Name": "Open",
-          "Value": 700,
+          "Value": 850,
           "Incremental": false,
           "Configuration": "t1.0"
         }
@@ -3199,19 +3128,19 @@
       "Name": "vLV",
       "Description": "Vacuum system low vacuum valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 1825,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
         {
           "Name": "Close",
-          "Value": 1700,
+          "Value": 1825,
           "Incremental": false,
           "Configuration": "t0.8"
         },
         {
           "Name": "Open",
-          "Value": 1200,
+          "Value": 1225,
           "Incremental": false,
           "Configuration": "t0.8"
         }
@@ -3222,19 +3151,19 @@
       "Name": "vB",
       "Description": "Vacuum system turbo pump backing valve",
       "ValveState": "Opened",
-      "Position": 0,
+      "Position": 740,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
         {
           "Name": "Close",
-          "Value": 1700,
+          "Value": 1787,
           "Incremental": false,
           "Configuration": "t1.0"
         },
         {
           "Name": "Open",
-          "Value": 700,
+          "Value": 740,
           "Incremental": false,
           "Configuration": "t1.0"
         }
@@ -3245,19 +3174,19 @@
       "Name": "vR",
       "Description": "Vacuum system roughing pump valve",
       "ValveState": "Opened",
-      "Position": 0,
+      "Position": 675,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
         {
           "Name": "Close",
-          "Value": 1700,
+          "Value": 1710,
           "Incremental": false,
           "Configuration": "t1.0"
         },
         {
           "Name": "Open",
-          "Value": 700,
+          "Value": 675,
           "Incremental": false,
           "Configuration": "t1.0"
         }
@@ -3267,14 +3196,14 @@
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vIM_VM",
       "Description": "IM-VM valve",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3288,6 +3217,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3314,14 +3291,14 @@
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vCT_VM",
       "Description": "CT-VM valve",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3335,6 +3312,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3361,14 +3386,14 @@
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vGM_VM",
       "Description": "GM-VM valve",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3382,6 +3407,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3409,7 +3482,7 @@
       "Name": "vHe_VM",
       "Description": "He-VM gas shutoff valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 1750,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -3432,7 +3505,7 @@
       "Name": "vH2_VM",
       "Description": "H2-VM gas shutoff valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 1725,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -3455,7 +3528,7 @@
       "Name": "vCO2_VM",
       "Description": "CO2-VM gas shutoff valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 1850,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -3478,7 +3551,7 @@
       "Name": "vO2_VM",
       "Description": "O2-VM gas shutoff valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 1865,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -3521,6 +3594,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3571,6 +3692,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -3615,6 +3784,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3665,6 +3882,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -3709,6 +3974,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3759,6 +4072,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -3782,14 +4143,14 @@
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vIM_CT",
       "Description": "IM-CT valve",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3803,6 +4164,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3829,14 +4238,14 @@
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vCT_VTT",
       "Description": "CT-VTT valve",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3850,6 +4259,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3876,14 +4333,14 @@
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vVTT_MC",
       "Description": "VTT-MC valve",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3897,6 +4354,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3923,14 +4428,14 @@
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vMC_MCP1",
       "Description": "MC-MCP1 valve",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3944,6 +4449,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -3970,14 +4523,14 @@
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vMC_MCP2",
       "Description": "MC-MCP2 valve",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -3991,6 +4544,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -4017,14 +4618,14 @@
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vMC_Split",
       "Description": "MC-Split valve",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -4038,6 +4639,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -4064,14 +4713,14 @@
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vSplit_GM",
       "Description": "Split-GM valve",
-      "Position": 192,
+      "Position": 0,
       "MinimumPosition": 0,
       "MaximumPosition": 192,
       "PositionsPerTurn": 96,
       "ClosedOffset": 0,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Opened",
       "OpenedVolumeDelta": 0.175,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -4085,6 +4734,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -4135,6 +4832,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -4179,6 +4924,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -4229,6 +5022,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -4276,6 +5117,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -4283,7 +5172,7 @@
         },
         {
           "Name": "Close pulse - use only if valve is stuck open",
-          "Value": 10,
+          "Value": 24,
           "Incremental": true,
           "Configuration": "t2"
         },
@@ -4320,6 +5209,54 @@
           "Name": "Open",
           "Value": 0,
           "Incremental": false,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
           "Configuration": "i800 t4"
         },
         {
@@ -4370,6 +5307,54 @@
           "Configuration": "i800 t4"
         },
         {
+          "Name": "Close 1/16 turn",
+          "Value": 6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/8 turn",
+          "Value": 12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/4 turn",
+          "Value": 24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Close 1/2 turn",
+          "Value": 48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/16 turn",
+          "Value": -6,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/8 turn",
+          "Value": -12,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/4 turn",
+          "Value": -24,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
+          "Name": "Open 1/2 turn",
+          "Value": -48,
+          "Incremental": true,
+          "Configuration": "i800 t4"
+        },
+        {
           "Name": "Open pulse - use only if valve is stuck closed",
           "Value": -10,
           "Incremental": true,
@@ -4394,7 +5379,7 @@
       "Name": "vLN_CT",
       "Description": "Coil trap LN valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 2000,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -4406,7 +5391,7 @@
         },
         {
           "Name": "Open",
-          "Value": 1300,
+          "Value": 1250,
           "Incremental": false,
           "Configuration": "t1.0"
         },
@@ -4423,7 +5408,7 @@
       "Name": "vLN_VTT",
       "Description": "Variable-temperature trap LN valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 2000,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -4435,7 +5420,7 @@
         },
         {
           "Name": "ColdTrickle",
-          "Value": 1375,
+          "Value": 1390,
           "Incremental": false,
           "Configuration": "t1.0"
         },
@@ -4447,7 +5432,7 @@
         },
         {
           "Name": "Open",
-          "Value": 1000,
+          "Value": 1310,
           "Incremental": false,
           "Configuration": "t1.0"
         },
@@ -4464,7 +5449,7 @@
       "Name": "vLN_MC",
       "Description": "Measurement chamber LN valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 2000,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -4476,7 +5461,7 @@
         },
         {
           "Name": "Open",
-          "Value": 1300,
+          "Value": 1285,
           "Incremental": false,
           "Configuration": "t1.0"
         },
@@ -4493,7 +5478,7 @@
       "Name": "vLN_GR1",
       "Description": "Graphite reactor 1 LN valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 2000,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -4505,7 +5490,7 @@
         },
         {
           "Name": "Open",
-          "Value": 1300,
+          "Value": 1280,
           "Incremental": false,
           "Configuration": "t1.0"
         },
@@ -4522,7 +5507,7 @@
       "Name": "vLN_GR2",
       "Description": "Graphite reactor 2 LN valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 2000,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -4534,7 +5519,7 @@
         },
         {
           "Name": "Open",
-          "Value": 1300,
+          "Value": 1475,
           "Incremental": false,
           "Configuration": "t1.0"
         },
@@ -4551,7 +5536,7 @@
       "Name": "vLN_GR3",
       "Description": "Graphite reactor 3 LN valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 2000,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -4563,7 +5548,7 @@
         },
         {
           "Name": "Open",
-          "Value": 1300,
+          "Value": 1450,
           "Incremental": false,
           "Configuration": "t1.0"
         },
@@ -4580,7 +5565,7 @@
       "Name": "vLN_GR4",
       "Description": "Graphite reactor 4 LN valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 2000,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -4592,7 +5577,7 @@
         },
         {
           "Name": "Open",
-          "Value": 1300,
+          "Value": 1375,
           "Incremental": false,
           "Configuration": "t1.0"
         },
@@ -4609,7 +5594,7 @@
       "Name": "vLN_GR5",
       "Description": "Graphite reactor 5 LN valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 2000,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -4621,7 +5606,7 @@
         },
         {
           "Name": "Open",
-          "Value": 1300,
+          "Value": 1400,
           "Incremental": false,
           "Configuration": "t1.0"
         },
@@ -4638,7 +5623,7 @@
       "Name": "vLN_GR6",
       "Description": "Graphite reactor 6 LN valve",
       "ValveState": "Closed",
-      "Position": 0,
+      "Position": 2000,
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 80,
       "ActuatorOperations": [
@@ -4650,7 +5635,7 @@
         },
         {
           "Name": "Open",
-          "Value": 1300,
+          "Value": 1400,
           "Incremental": false,
           "Configuration": "t1.0"
         },
@@ -4668,9 +5653,9 @@
       "Description": "Coil trap flow valve",
       "Position": 0,
       "MinimumPosition": 0,
-      "MaximumPosition": 682,
+      "MaximumPosition": 675,
       "PositionsPerTurn": 96,
-      "ClosedOffset": 10,
+      "ClosedOffset": 3,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
       "ValveState": "Opened",
@@ -4858,9 +5843,9 @@
       "Description": "H2-VM flow valve",
       "Position": 672,
       "MinimumPosition": 0,
-      "MaximumPosition": 682,
+      "MaximumPosition": 675,
       "PositionsPerTurn": 96,
-      "ClosedOffset": 10,
+      "ClosedOffset": 3,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
       "ValveState": "Closed",
@@ -4951,14 +5936,14 @@
       "$type": "AeonHacs.Components.RS232Valve, AeonHacs.Core",
       "Name": "vCO2Flow",
       "Description": "CO2-VM flow valve",
-      "Position": 672,
+      "Position": 648,
       "MinimumPosition": 0,
       "MaximumPosition": 682,
       "PositionsPerTurn": 96,
       "ClosedOffset": 10,
       "Calibrated": true,
       "ConsecutiveMatches": 9,
-      "ValveState": "Closed",
+      "ValveState": "Other",
       "OpenedVolumeDelta": 0.0,
       "IdleCurrentLimit": 110,
       "ActuatorOperations": [
@@ -5150,7 +6135,7 @@
       "Description": "Inlet port 1 sample furnace",
       "ThermocoupleChannel": 0,
       "PidSetup": "PID_IP1",
-      "Setpoint": 150.0,
+      "Setpoint": 625.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 850.0,
       "StopAction": "None",
@@ -5177,9 +6162,9 @@
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
       "Name": "hIP2CCS",
       "Description": "Inlet port 2 sample furnace",
-      "ThermocoupleChannel": 0,
+      "ThermocoupleChannel": 2,
       "PidSetup": "PID_IP2",
-      "Setpoint": 150.0,
+      "Setpoint": 625.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 850.0,
       "StopAction": "None",
@@ -5206,9 +6191,9 @@
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
       "Name": "hIP3CCS",
       "Description": "Inlet port 3 sample furnace",
-      "ThermocoupleChannel": 0,
+      "ThermocoupleChannel": 4,
       "PidSetup": "PID_IP3",
-      "Setpoint": 150.0,
+      "Setpoint": 625.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 850.0,
       "StopAction": "None",
@@ -5237,7 +6222,7 @@
       "Description": "Inlet port 4 sample furnace",
       "ThermocoupleChannel": 0,
       "PidSetup": "PID_IP4",
-      "Setpoint": 150.0,
+      "Setpoint": 625.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 850.0,
       "StopAction": "None",
@@ -5264,9 +6249,9 @@
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
       "Name": "hIP5CCS",
       "Description": "Inlet port 5 sample furnace",
-      "ThermocoupleChannel": 0,
+      "ThermocoupleChannel": 2,
       "PidSetup": "PID_IP5",
-      "Setpoint": 150.0,
+      "Setpoint": 625.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 850.0,
       "StopAction": "None",
@@ -5293,9 +6278,9 @@
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
       "Name": "hIP6CCS",
       "Description": "Inlet port 6 sample furnace",
-      "ThermocoupleChannel": 0,
+      "ThermocoupleChannel": 4,
       "PidSetup": "PID_IP6",
-      "Setpoint": 150.0,
+      "Setpoint": 625.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 850.0,
       "StopAction": "None",
@@ -5344,8 +6329,8 @@
       "Rising": 0.0,
       "ZerosToAverage": 30,
       "ManualMode": true,
-      "PowerLevel": 12.0,
-      "MaximumPowerLevel": 12.0
+      "PowerLevel": 12.4,
+      "MaximumPowerLevel": 15.0
     },
     "hIP2CCQ": {
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
@@ -5373,8 +6358,8 @@
       "Rising": 0.0,
       "ZerosToAverage": 30,
       "ManualMode": true,
-      "PowerLevel": 12.0,
-      "MaximumPowerLevel": 12.0
+      "PowerLevel": 12.2,
+      "MaximumPowerLevel": 15.0
     },
     "hIP3CCQ": {
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
@@ -5402,8 +6387,8 @@
       "Rising": 0.0,
       "ZerosToAverage": 30,
       "ManualMode": true,
-      "PowerLevel": 12.0,
-      "MaximumPowerLevel": 12.0
+      "PowerLevel": 11.4,
+      "MaximumPowerLevel": 15.0
     },
     "hIP4CCQ": {
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
@@ -5431,8 +6416,8 @@
       "Rising": 0.0,
       "ZerosToAverage": 30,
       "ManualMode": true,
-      "PowerLevel": 12.0,
-      "MaximumPowerLevel": 12.0
+      "PowerLevel": 11.3,
+      "MaximumPowerLevel": 15.0
     },
     "hIP5CCQ": {
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
@@ -5460,8 +6445,8 @@
       "Rising": 0.0,
       "ZerosToAverage": 30,
       "ManualMode": true,
-      "PowerLevel": 12.0,
-      "MaximumPowerLevel": 12.0
+      "PowerLevel": 11.65,
+      "MaximumPowerLevel": 15.0
     },
     "hIP6CCQ": {
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
@@ -5489,20 +6474,20 @@
       "Rising": 0.0,
       "ZerosToAverage": 30,
       "ManualMode": true,
-      "PowerLevel": 12.0,
-      "MaximumPowerLevel": 12.0
+      "PowerLevel": 11.4,
+      "MaximumPowerLevel": 15.0
     },
     "hGR1": {
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
       "Name": "hGR1",
       "Description": "Graphite reactor 1 furnace",
-      "ThermocoupleChannel": 0,
+      "ThermocoupleChannel": 5,
       "PidSetup": "PID_GR1",
-      "Setpoint": 400.0,
+      "Setpoint": 572.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 600.0,
       "StopAction": "None",
-      "OnOffState": "Off",
+      "OnOffState": "On",
       "UnitSymbol": "°C",
       "Ratiometric": false,
       "MaxValue": 0.0,
@@ -5525,9 +6510,9 @@
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
       "Name": "hGR2",
       "Description": "Graphite reactor 2 furnace",
-      "ThermocoupleChannel": 0,
+      "ThermocoupleChannel": 4,
       "PidSetup": "PID_GR2",
-      "Setpoint": 400.0,
+      "Setpoint": 586.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 600.0,
       "StopAction": "None",
@@ -5554,13 +6539,13 @@
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
       "Name": "hGR3",
       "Description": "Graphite reactor 3 furnace",
-      "ThermocoupleChannel": 0,
+      "ThermocoupleChannel": 3,
       "PidSetup": "PID_GR3",
-      "Setpoint": 400.0,
+      "Setpoint": 579.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 600.0,
       "StopAction": "None",
-      "OnOffState": "Off",
+      "OnOffState": "On",
       "UnitSymbol": "°C",
       "Ratiometric": false,
       "MaxValue": 0.0,
@@ -5577,19 +6562,19 @@
       "ZerosToAverage": 30,
       "ManualMode": false,
       "PowerLevel": 0.0,
-      "MaximumPowerLevel": 8.0
+      "MaximumPowerLevel": 10.0
     },
     "hGR4": {
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
       "Name": "hGR4",
       "Description": "Graphite reactor 4 furnace",
-      "ThermocoupleChannel": 0,
+      "ThermocoupleChannel": 2,
       "PidSetup": "PID_GR4",
-      "Setpoint": 400.0,
+      "Setpoint": 560.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 600.0,
       "StopAction": "None",
-      "OnOffState": "Off",
+      "OnOffState": "On",
       "UnitSymbol": "°C",
       "Ratiometric": false,
       "MaxValue": 0.0,
@@ -5612,9 +6597,9 @@
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
       "Name": "hGR5",
       "Description": "Graphite reactor 5 furnace",
-      "ThermocoupleChannel": 0,
+      "ThermocoupleChannel": 1,
       "PidSetup": "PID_GR5",
-      "Setpoint": 400.0,
+      "Setpoint": 575.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 600.0,
       "StopAction": "None",
@@ -5643,11 +6628,11 @@
       "Description": "Graphite reactor 6 furnace",
       "ThermocoupleChannel": 0,
       "PidSetup": "PID_GR6",
-      "Setpoint": 400.0,
+      "Setpoint": 568.0,
       "MinimumSetpoint": 0.0,
       "MaximumSetpoint": 600.0,
       "StopAction": "None",
-      "OnOffState": "Off",
+      "OnOffState": "On",
       "UnitSymbol": "°C",
       "Ratiometric": false,
       "MaxValue": 0.0,
@@ -5670,7 +6655,7 @@
       "$type": "AeonHacs.Components.HC6Heater, AeonHacs.Core",
       "Name": "hVTC",
       "Description": "Variable-temperature coldfinger heater",
-      "ThermocoupleChannel": 0,
+      "ThermocoupleChannel": 4,
       "PidSetup": "VtcCold",
       "Setpoint": -140.0,
       "MinimumSetpoint": -196.0,
@@ -5701,127 +6686,127 @@
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_IP1",
       "Description": "PID parameters for IP1 sample furnace",
-      "Gain": 14.0,
-      "Integral": 0.007,
-      "Derivative": 170.0,
-      "Preset": 0.75
+      "Gain": 9.82,
+      "Integral": 0.00621,
+      "Derivative": 185.2,
+      "Preset": 0.722
     },
     "PID_IP2": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_IP2",
       "Description": "PID parameters for IP2 sample furnace",
-      "Gain": 14.0,
-      "Integral": 0.007,
-      "Derivative": 170.0,
-      "Preset": 0.75
+      "Gain": 14.09,
+      "Integral": 0.00684,
+      "Derivative": 151.5,
+      "Preset": 0.702
     },
     "PID_IP3": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_IP3",
       "Description": "PID parameters for IP3 sample furnace",
-      "Gain": 14.0,
-      "Integral": 0.007,
-      "Derivative": 170.0,
-      "Preset": 0.75
+      "Gain": 11.55,
+      "Integral": 0.00826,
+      "Derivative": 130.4,
+      "Preset": 0.699
     },
     "PID_IP4": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_IP4",
       "Description": "PID parameters for IP4 sample furnace",
-      "Gain": 14.0,
-      "Integral": 0.007,
-      "Derivative": 170.0,
-      "Preset": 0.75
+      "Gain": 11.46,
+      "Integral": 0.00651,
+      "Derivative": 170.5,
+      "Preset": 0.779
     },
     "PID_IP5": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_IP5",
       "Description": "PID parameters for IP5 sample furnace",
-      "Gain": 14.0,
-      "Integral": 0.007,
-      "Derivative": 170.0,
-      "Preset": 0.75
+      "Gain": 10.89,
+      "Integral": 0.00612,
+      "Derivative": 187.5,
+      "Preset": 0.832
     },
     "PID_IP6": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_IP6",
       "Description": "PID parameters for IP6 sample furnace",
-      "Gain": 14.0,
-      "Integral": 0.007,
-      "Derivative": 170.0,
+      "Gain": 9.79,
+      "Integral": 0.00675,
+      "Derivative": 166.7,
       "Preset": 0.75
     },
     "PID_GR1": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_GR1",
       "Description": "PID parameters for GR1 furnace",
-      "Gain": 59.47,
-      "Integral": 0.01024,
-      "Derivative": 87.7,
-      "Preset": 0.612
+      "Gain": 14.9,
+      "Integral": 0.00685,
+      "Derivative": 156.3,
+      "Preset": 0.705
     },
     "PID_GR2": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_GR2",
       "Description": "PID parameters for GR2 furnace",
-      "Gain": 25.0,
-      "Integral": 0.01,
-      "Derivative": 100.0,
-      "Preset": 0.8
+      "Gain": 22.31,
+      "Integral": 0.00841,
+      "Derivative": 92.0,
+      "Preset": 0.626
     },
     "PID_GR3": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_GR3",
       "Description": "PID parameters for GR3 furnace",
-      "Gain": 25.0,
-      "Integral": 0.01,
-      "Derivative": 100.0,
-      "Preset": 0.8
+      "Gain": 9.93,
+      "Integral": 0.00681,
+      "Derivative": 174.4,
+      "Preset": 0.789
     },
     "PID_GR4": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_GR4",
       "Description": "PID parameters for GR4 furnace",
-      "Gain": 25.0,
-      "Integral": 0.01,
-      "Derivative": 100.0,
-      "Preset": 0.8
+      "Gain": 18.36,
+      "Integral": 0.00699,
+      "Derivative": 127.1,
+      "Preset": 0.68
     },
     "PID_GR5": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_GR5",
       "Description": "PID parameters for GR5 furnace",
-      "Gain": 25.0,
-      "Integral": 0.01,
+      "Gain": 46.22,
+      "Integral": 0.00753,
       "Derivative": 100.0,
-      "Preset": 0.8
+      "Preset": 0.633
     },
     "PID_GR6": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "PID_GR6",
       "Description": "PID parameters for GR6 furnace",
-      "Gain": 25.0,
-      "Integral": 0.01,
-      "Derivative": 100.0,
-      "Preset": 0.8
+      "Gain": 17.59,
+      "Integral": 0.00754,
+      "Derivative": 103.4,
+      "Preset": 0.65
     },
     "VtcCold": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "VtcCold",
       "Description": "PID parameters for VTC with LN flowing",
-      "Gain": 60.0,
-      "Integral": 0.04,
-      "Derivative": 225.0,
-      "Preset": 6.0
+      "Gain": 46.93,
+      "Integral": 0.03687,
+      "Derivative": 264.7,
+      "Preset": 6.323
     },
     "VtcWarm": {
       "$type": "AeonHacs.Components.PidSetup, AeonHacs.Core",
       "Name": "VtcWarm",
       "Description": "PID parameters for VTC with no LN",
-      "Gain": 60.0,
-      "Integral": 0.002,
-      "Derivative": 370.0,
-      "Preset": 0.7
+      "Gain": 162.37,
+      "Integral": 0.00203,
+      "Derivative": 360.4,
+      "Preset": 0.597
     }
   },
   "LNManifolds": {
@@ -6101,10 +7086,10 @@
       "MySection": "VS1All",
       "State": "Evacuate",
       "BaselinePressure": 0.0005,
-      "GoodBackingPressure": 4.0,
-      "HighVacuumPreferredPressure": 7.0,
-      "HighVacuumRequiredPressure": 5.0,
-      "LowVacuumRequiredPressure": 8.0,
+      "GoodBackingPressure": 6.5,
+      "HighVacuumPreferredPressure": 8.0,
+      "HighVacuumRequiredPressure": 7.0,
+      "LowVacuumRequiredPressure": 15.0,
       "IdleTimeout": 50
     }
   },
@@ -6123,7 +7108,7 @@
       "$type": "AeonHacs.Components.Chamber, AeonHacs.Core",
       "Name": "CalibratedKnownVolume",
       "Description": "Known volume used for calibrating chambers",
-      "MilliLiters": 23.773,
+      "MilliLiters": 30.694,
       "Manometer": null,
       "Thermometer": null,
       "Heater": null,
@@ -6424,7 +7409,7 @@
       "Sample": null,
       "Aliquot": 0,
       "GraphitizingTemperature": 580,
-      "SampleTemperatureOffset": 0,
+      "SampleTemperatureOffset": -6,
       "SampleSetpoint": 580.0,
       "StateStopwatch": {
         "IsRunning": false,
@@ -6456,7 +7441,7 @@
       "Sample": null,
       "Aliquot": 0,
       "GraphitizingTemperature": 580,
-      "SampleTemperatureOffset": 0,
+      "SampleTemperatureOffset": 1,
       "SampleSetpoint": 580.0,
       "StateStopwatch": {
         "IsRunning": false,
@@ -6488,7 +7473,7 @@
       "Sample": null,
       "Aliquot": 0,
       "GraphitizingTemperature": 580,
-      "SampleTemperatureOffset": 0,
+      "SampleTemperatureOffset": 20,
       "SampleSetpoint": 580.0,
       "StateStopwatch": {
         "IsRunning": false,
@@ -6520,7 +7505,7 @@
       "Sample": null,
       "Aliquot": 0,
       "GraphitizingTemperature": 580,
-      "SampleTemperatureOffset": 0,
+      "SampleTemperatureOffset": 5,
       "SampleSetpoint": 580.0,
       "StateStopwatch": {
         "IsRunning": false,
@@ -6552,7 +7537,7 @@
       "Sample": null,
       "Aliquot": 0,
       "GraphitizingTemperature": 580,
-      "SampleTemperatureOffset": 0,
+      "SampleTemperatureOffset": 12,
       "SampleSetpoint": 580.0,
       "StateStopwatch": {
         "IsRunning": false,
@@ -7253,11 +8238,11 @@
       "SourceValve": "vH2_VM",
       "FlowValve": "vH2Flow",
       "Meter": "pGM",
-      "SecondsSettlingTime": 2.0,
+      "SecondsSettlingTime": 3.0,
       "FlowManager": "H2.GMFlowManager",
       "Destination": "GM",
       "Path": "VM",
-      "PurgePressure": 5.0,
+      "PurgePressure": 20.0,
       "SecondsToPurge": 20,
       "SecondsToPressurize": 180
     },
@@ -7273,7 +8258,7 @@
       "FlowManager": "He.GMFlowManager",
       "Destination": "GM",
       "Path": "VM",
-      "PurgePressure": 5.0,
+      "PurgePressure": 10.0,
       "SecondsToPurge": 20,
       "SecondsToPressurize": 180
     },
@@ -7289,7 +8274,7 @@
       "FlowManager": "He.IMFlowManager",
       "Destination": "IM",
       "Path": "VM",
-      "PurgePressure": 5.0,
+      "PurgePressure": 10.0,
       "SecondsToPurge": 20,
       "SecondsToPressurize": 20
     },
@@ -7305,7 +8290,7 @@
       "FlowManager": "He.MCFlowManager",
       "Destination": "MC",
       "Path": "VM_Split",
-      "PurgePressure": 5.0,
+      "PurgePressure": 10.0,
       "SecondsToPurge": 20,
       "SecondsToPressurize": 180
     },
@@ -7321,7 +8306,7 @@
       "FlowManager": "He.MCFlowManager",
       "Destination": "MCA",
       "Path": "VM_Split",
-      "PurgePressure": 5.0,
+      "PurgePressure": 10.0,
       "SecondsToPurge": 20,
       "SecondsToPressurize": 180
     },
@@ -7337,7 +8322,7 @@
       "FlowManager": "He.MCFlowManager",
       "Destination": "MCA_Split",
       "Path": "VM_GM",
-      "PurgePressure": 5.0,
+      "PurgePressure": 10.0,
       "SecondsToPurge": 20,
       "SecondsToPressurize": 180
     },
@@ -7353,7 +8338,7 @@
       "FlowManager": "He.MCFlowManager",
       "Destination": "MC_GM",
       "Path": "VM",
-      "PurgePressure": 5.0,
+      "PurgePressure": 10.0,
       "SecondsToPurge": 20,
       "SecondsToPressurize": 180
     },
@@ -7369,7 +8354,7 @@
       "FlowManager": "He.MCFlowManager",
       "Destination": "MCA_GM",
       "Path": "VM",
-      "PurgePressure": 5.0,
+      "PurgePressure": 10.0,
       "SecondsToPurge": 20,
       "SecondsToPressurize": 180
     },
@@ -7385,7 +8370,7 @@
       "FlowManager": "CO2.MCFlowManager",
       "Destination": "MC",
       "Path": "VM_Split",
-      "PurgePressure": 3.0,
+      "PurgePressure": 10.0,
       "SecondsToPurge": 20,
       "SecondsToPressurize": 180
     },
@@ -7834,18 +8819,6 @@
           "Resolution": -1.0,
           "Format": "0.00e0",
           "Path": ""
-        },
-        {
-          "Name": "pVM_LP",
-          "Resolution": -1.0,
-          "Format": "0.00e0",
-          "Path": ""
-        },
-        {
-          "Name": "pVM_GP",
-          "Resolution": -1.0,
-          "Format": "0.0",
-          "Path": ""
         }
       ],
       "ChangeTimeoutMilliseconds": 30000,
@@ -8100,6 +9073,55 @@
       "TimeStampFormat": "MM/dd/yyyy HH:mm:ss.fff\t",
       "ArchiveDaily": true
     },
+    "GRSampleTemperatureLog": {
+      "$type": "AeonHacs.Components.DataLog, AeonHacs.Core",
+      "Name": "GRSampleTemperatureLog",
+      "Description": "",
+      "InsertLatestSkippedEntry": false,
+      "Columns": [
+        {
+          "Name": "GR1.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": ""
+        },
+        {
+          "Name": "GR2.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": ""
+        },
+        {
+          "Name": "GR3.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": ""
+        },
+        {
+          "Name": "GR4.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": ""
+        },
+        {
+          "Name": "GR5.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": ""
+        },
+        {
+          "Name": "GR6.SampleTemperature",
+          "Resolution": 1.0,
+          "Format": "0.0",
+          "Path": ""
+        }
+      ],
+      "ChangeTimeoutMilliseconds": 30000,
+      "OnlyLogWhenChanged": false,
+      "FileName": "GR Sample Temperature data.txt",
+      "TimeStampFormat": "MM/dd/yyyy HH:mm:ss.fff\t",
+      "ArchiveDaily": true
+    },
     "GRColdfingerLog": {
       "$type": "AeonHacs.Components.DataLog, AeonHacs.Core",
       "Name": "GRColdfingerLog",
@@ -8325,7 +9347,7 @@
     "DefaultParameters": [
       {
         "ParameterName": "CO2TransferMinutes",
-        "Value": 2.5,
+        "Value": 5.0,
         "Description": "Time to wait for CO2 transfer between chambers."
       },
       {
@@ -8405,7 +9427,7 @@
       },
       {
         "ParameterName": "ExtractionMinutes",
-        "Value": 4.0,
+        "Value": 8.0,
         "Description": "Time to spend extracting CO2 from the VTT into the MC."
       },
       {
@@ -8465,7 +9487,7 @@
       },
       {
         "ParameterName": "IMO2Pressure",
-        "Value": 1390.0,
+        "Value": 1350.0,
         "Description": "An initial IM O2 pressure that will expand sufficient oxygen into the inlet port to fully combust a sample of maximum size. Typically, this means enough to fully oxidize about three mg C to CO2."
       },
       {
@@ -8480,7 +9502,7 @@
       },
       {
         "ParameterName": "IpMinutes",
-        "Value": 15.0,
+        "Value": 60.0,
         "Description": "Set time for the IP Timer."
       },
       {
