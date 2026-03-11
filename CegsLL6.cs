@@ -28,14 +28,18 @@ public partial class CegsLL6 : Cegs
         ProcessDictionary["Prepare loaded inlet ports for collection"] = PrepareInletPorts;
         Separators.Add(ProcessDictionary.Count);
 
+        //ProcessDictionary["Reload completed d13C ports"] = Reload_d13CPorts;
+        //ProcessDictionary["Prepare loaded d13C ports"] = PrepareLoaded_d13CPorts;
+        //Separators.Add(ProcessDictionary.Count);
+
         ProcessDictionary["Prepare carbonate sample for acid"] = PrepareCarbonateSample;
         ProcessDictionary["Load acidified carbonate sample"] = LoadCarbonateSample;
         Separators.Add(ProcessDictionary.Count);
 
         // Open line
         ProcessDictionary["Open and evacuate line"] = OpenLine;
-        ProcessDictionary["Open and evacuate line (MC)"] = OpenLineMC;
         ProcessDictionary["Open and evacuate line (IM)"] = OpenLineIM;
+        ProcessDictionary["Open and evacuate line (MC)"] = OpenLineMC;
         Separators.Add(ProcessDictionary.Count);
 
         // Main process continuations
@@ -56,6 +60,7 @@ public partial class CegsLL6 : Cegs
         ProcessDictionary["Remove sulfur"] = RemoveSulfur;
         ProcessDictionary["Dilute small sample"] = Dilute;
         ProcessDictionary["Graphitize aliquots"] = GraphitizeAliquots;
+        //ProcessDictionary["Add d13C carrier"] = AddCarrierTo_d13C;
         Separators.Add(ProcessDictionary.Count);
 
         // Secondary-level process sub-steps
@@ -85,10 +90,12 @@ public partial class CegsLL6 : Cegs
 
         // Split sample processing
         ProcessDictionary["Create a sample split"] = CreateSampleSplit;
-        ProcessDictionary["Wait for VTT..GM to be free"] = WaitForCegs;
-        ProcessDictionary["Launch Extract, etc."] = StartExtractEtc;
-        ProcessDictionary["Collect sample gas, then launch Extract, etc."] = CollectAndLaunchExtractEtc;
-        ProcessDictionary["Graphitize all collected splits"] = GraphitizeSplits;
+        ProcessDictionary["Wait for CEGS to be free"] = WaitForCegs;
+        ProcessDictionary["Launch Transfer, etc."] = LaunchTransferEtc;
+        ProcessDictionary["Collect sample gas, then launch Transfer, etc."] = CollectAndLaunchTransferEtc;
+        ProcessDictionary["Keep all LN Manifolds Active"] = KeepAllLNManifoldsActive;
+        ProcessDictionary["Resume all LN Manifolds Monitoring"] = ResumeAllLNManifoldsMonitoring;
+        ProcessDictionary["Open and Evacuate VTT..GM"] = OpenAndEvacuateVttToGM;
         Separators.Add(ProcessDictionary.Count);
 
         // Granular inlet port & sample process control
@@ -100,11 +107,6 @@ public partial class CegsLL6 : Cegs
         ProcessDictionary["Turn on quartz furnace"] = TurnOnIpQuartzFurnace;
         ProcessDictionary["Turn off quartz furnace"] = TurnOffIpQuartzFurnace;
         ProcessDictionary["Turn on sample furnace"] = TurnOnIpSampleFurnace;
-        // These should no longer be required; they are now effected in SetParameter();
-        //ProcessDictionary["Disable sample setpoint ramping"] = DisableIpRamp;
-        //ProcessDictionary["Enable sample setpoint ramping"] = EnableIpRamp;
-        //ProcessDictionary["Adjust sample setpoint"] = AdjustIpSetpoint;
-        //ProcessDictionary["Adjust sample ramp rate"] = AdjustIpRampRate;
         ProcessDictionary["Wait for sample to rise to setpoint"] = WaitIpRiseToSetpoint;
         ProcessDictionary["Wait for sample to fall to setpoint"] = WaitIpFallToSetpoint;
         ProcessDictionary["Turn off sample furnace"] = TurnOffIpSampleFurnace;
