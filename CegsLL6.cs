@@ -1,4 +1,7 @@
-﻿namespace AeonHacs.Components;
+﻿using System;
+using static AeonHacs.Utilities.Utility;
+
+namespace AeonHacs.Components;
 
 public partial class CegsLL6 : Cegs
 {
@@ -162,6 +165,32 @@ public partial class CegsLL6 : Cegs
     /// </summary>
     protected override void Test()
     {
+        //GM.Evacuate();
+        //var gs = Find<GasSupply>(Sample.LabId);
+        //gs.FlowPressurize(Sample.Milligrams);
+
+        // A three-hour test of exercising multi-turn valves.
+        // This is intended to be a general-purpose test of the
+        // valve control code and general operational reliability.
+        // It's a good idea to clear 'ActuatorController log.txt'
+        // first, in case errors are encountered; otherwise,
+        // recoverable errors may go unnoticed. SystemLog will record
+        // the entire sequence of operations.
+        var valves = FindAll<RS232Valve>((v) => v.IsOpened);
+        var rnd = new Random();
+        var step = ProcessStep.Start($"Exercising random valves for three hours");
+        for (int i = 0; i < 366; i++)
+        {
+            var v = valves[rnd.Next(valves.Count)];
+            var step2 = ProcessStep.Start($"Exercising {v.Name}");
+            v.CloseWait();
+            WaitSeconds(rnd.Next(6));      // 0–5 seconds
+            v.OpenWait();
+            step2.End();
+            WaitSeconds(rnd.Next(31));     // 0–30 seconds
+        }
+        step.End();
+
     }
 
     #endregion Test functions
